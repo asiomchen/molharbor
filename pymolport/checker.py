@@ -1,7 +1,12 @@
+from __future__ import annotations
+from re import U
 import warnings
 import pandas as pd
-import requests
+import httpx
 from dataclasses import dataclass, field
+import logging
+from typing import List, Dict, Union, Iterable
+import asyncio
 
 class Molport:
     username = "john.spade"
@@ -16,11 +21,28 @@ class Molport:
             "Maximum Result Count": 1000,
             "Chemical Similarity Index": 0.9
         }
+        self.client = httpx.Client()
         
     def __repr__(self) -> str:
         return type(self).__name__ + '()'
+    
+    def find(self, smiles: Union[str, Iterable[str]]) -> List[MolportCompound]:
+        """
+        Finds the Molport ID of a compound. If compound have molport ID exists,
+         assupms that it is commercial.
+        :param smiles: canonical smiles string
+        :return:
+        """
+        if isinstance(smiles, str):
+            smiles = [smiles]
+        if isinstance(smiles, Iterable):
+            return [self._find(s) for s in smiles]
+        else:
+            raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
+    
 
-    def find_compound(self, smiles=None):
+
+    def _find(self, smiles: str) -> MolportCompound:
         """
         Finds the Molport ID of a compound. If compound have molport ID exists,
          assupms that it is commercial.
@@ -36,11 +58,11 @@ class Molport:
            "Maximum Result Count": 10000,
            "Chemical Similarity Index": 1
         }
-        similarity_request = requests.post('https://api.molport.com/api/chemical-search/search', json=payload)
+        similarity_request = self.client.post('https://api.molport.com/api/chemical-search/search', json=payload)
         response = similarity_request.json()
         try:
             self.molport_id = response['Data']['Molecules'][0]['MolPort Id'][8:]
-            print(f'Molport ID: {self.molport_id}')
+            logging.debug(f'Molport ID: {self.molport_id}')
             self.is_commercial = True
         except:
             self.molport_id = None
@@ -48,18 +70,12 @@ class Molport:
         return MolportCompound(smiles, self.molport_id, self.is_commercial)
 
 
-    def get_compound_suppliers(self, smiles=None, as_df=False):
-        self.smiles = smiles
-        if self.molport_id is None:
-            self.molport_id = self.find_compound(self.smiles).molport_id
-        if not self.is_commercial:
-            warnings.warn("This compound is non-commercial and cannot be retrieved from Molport")
-            return None
+    def get_compound_suppliers(self, molport_id: str, as_df: bool = True) -> Union[pd.DataFrame, Dict]:
         molport_id_request = 'https://api.molport.com/api/molecule/load?' \
                              'molecule={}' \
                              '&username=john.spade' \
                              '&authenticationcode=fasdga34a3'
-        r2 = requests.get(molport_id_request.format(self.molport_id))
+        r2 = self.client.get(molport_id_request.format(molport_id))
         response = r2.json()
         results = response['Data']['Molecule']['Catalogues']['Screening Block Suppliers']
         if as_df:
