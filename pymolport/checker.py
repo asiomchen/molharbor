@@ -1,12 +1,9 @@
 from __future__ import annotations
-from re import U
-import warnings
 import pandas as pd
 import httpx
 from dataclasses import dataclass, field
 import logging
 from typing import List, Dict, Union, Iterable
-import asyncio
 
 class Molport:
     username = "john.spade"
