@@ -77,7 +77,7 @@ class Molport:
             return MolportCompound(smiles, None)
         try:
             print(response)
-            molport_id = response.data.molecules[0].molport_id[8:]
+            molport_id = response.data.molecules[0].molport_id
             logging.debug(f'Molport ID: {molport_id}')
         except:
             molport_id = None
@@ -119,4 +119,4 @@ class MolportCompound:
     link: str = field(init=False)
 
     def __post_init__(self):
-        self.link = f'https://www.molport.com/shop/compound/Molport-{self.molport_id}' if self.molport_id else ""
+        self.link = f'https://www.molport.com/shop/compound/{self.molport_id}' if self.molport_id else ""
