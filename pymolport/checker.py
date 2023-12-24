@@ -5,20 +5,9 @@ from dataclasses import dataclass, field
 import logging
 from typing import List, Dict, Optional, Union, Iterable
 from pymolport.data import Response, ResponseSupplier
+from pymolport.exceptions import UnknownSearchTypeException
+from pymolport.enums import SearchType, ResultStatus
 from pydantic import ValidationError
-from enum import Enum
-
-class ResultStatus(Enum):
-    SUCCESS = 1
-    ERROR = 2
-
-class SearchType(Enum):
-    SUBSTRUCTURE = 1
-    SUPERSTRUCTURE = 2
-    EXACT = 3 
-    SIMILARITY = 4
-    PERFECT = 5
-    EXACT_FRAGMENT = 6
 
 
 class Molport:
@@ -41,13 +30,17 @@ class Molport:
     
     def find(self, 
              smiles: Union[str, Iterable[str]], 
-             search_type: SearchType = SearchType.EXACT, 
+             search_type: Union[SearchType, int] = SearchType.EXACT,
              max_results: int = 1000, similarity: Optional[float] = 0.9) -> List[List[MolportCompound]]:
+        try:
+            search_type = SearchType(search_type)
+        except ValueError:
+            raise UnknownSearchTypeException(search_type)
 
         if isinstance(smiles, str):
             smiles = [smiles]
         if isinstance(smiles, Iterable):
-            return [self._find(s, search_type, max_results, similarity) for s in smiles]
+            return [self._find(s, SearchType(search_type), max_results, similarity) for s in smiles]
         else:
             raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
     
