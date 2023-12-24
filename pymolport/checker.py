@@ -4,6 +4,14 @@ import httpx
 from dataclasses import dataclass, field
 import logging
 from typing import List, Dict, Union, Iterable
+from pymolport.data import Response, ResponseSupplier
+from pydantic import ValidationError
+from enum import Enum
+
+class ResultStatus(Enum):
+    SUCCESS = 1
+    ERROR = 2
+
 
 class Molport:
     username = "john.spade"
@@ -56,15 +64,24 @@ class Molport:
            "Chemical Similarity Index": 1
         }
         similarity_request = self.client.post('https://api.molport.com/api/chemical-search/search', json=payload)
-        response = similarity_request.json()
+        if similarity_request.status_code != 200:
+            logging.error(f'Error code: {similarity_request.status_code}')
+            return None
         try:
-            self.molport_id = response['Data']['Molecules'][0]['MolPort Id'][8:]
-            logging.debug(f'Molport ID: {self.molport_id}')
-            self.is_commercial = True
+            response = Response(**similarity_request.json())
+            if response.result.status != ResultStatus.SUCCESS.value:
+                logging.error(response.result.message)
+                return None
+        except ValidationError as e:
+            logging.error(e)
+            return MolportCompound(smiles, None)
+        try:
+            print(response)
+            molport_id = response.data.molecules[0].molport_id[8:]
+            logging.debug(f'Molport ID: {molport_id}')
         except:
-            self.molport_id = None
-            self.is_commercial = False
-        return MolportCompound(smiles, self.molport_id, self.is_commercial)
+            molport_id = None
+        return MolportCompound(smiles, molport_id)
 
 
     def get_compound_suppliers(self, molport_id: str, as_df: bool = True) -> Union[pd.DataFrame, Dict]:
@@ -99,7 +116,6 @@ class Molport:
 class MolportCompound:
     smiles: str
     molport_id: str
-    commercial: bool
     link: str = field(init=False)
 
     def __post_init__(self):
