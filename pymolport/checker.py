@@ -3,7 +3,7 @@ import pandas as pd
 import httpx
 from dataclasses import dataclass, field
 import logging
-from typing import List, Dict, Union, Iterable
+from typing import List, Dict, Optional, Union, Iterable
 from pymolport.data import Response, ResponseSupplier
 from pydantic import ValidationError
 from enum import Enum
@@ -11,6 +11,14 @@ from enum import Enum
 class ResultStatus(Enum):
     SUCCESS = 1
     ERROR = 2
+
+class SearchType(Enum):
+    SUBSTRUCTURE = 1
+    SUPERSTRUCTURE = 2
+    EXACT = 3 
+    SIMILARITY = 4
+    PERFECT = 5
+    EXACT_FRAGMENT = 6
 
 
 class Molport:
@@ -24,30 +32,28 @@ class Molport:
             "Search Type": "EXACT",
             "Maximum Search Time": 60000,
             "Maximum Result Count": 1000,
-            "Chemical Similarity Index": 0.9
+            "Chemical Similarity Index": 1
         }
         self.client = httpx.Client()
         
     def __repr__(self) -> str:
         return type(self).__name__ + '()'
     
-    def find(self, smiles: Union[str, Iterable[str]]) -> List[MolportCompound]:
-        """
-        Finds the Molport ID of a compound. If compound have molport ID exists,
-         assupms that it is commercial.
-        :param smiles: canonical smiles string
-        :return:
-        """
+    def find(self, 
+             smiles: Union[str, Iterable[str]], 
+             search_type: SearchType = SearchType.EXACT, 
+             max_results: int = 1000, similarity: Optional[float] = 0.9) -> List[List[MolportCompound]]:
+
         if isinstance(smiles, str):
             smiles = [smiles]
         if isinstance(smiles, Iterable):
-            return [self._find(s) for s in smiles]
+            return [self._find(s, search_type, max_results, similarity) for s in smiles]
         else:
             raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
     
 
 
-    def _find(self, smiles: str) -> MolportCompound:
+    def _find(self, smiles: str, search_type: SearchType, max_results: int, similarity: Optional[float] = 0.9) -> List[MolportCompound]:
         """
         Finds the Molport ID of a compound. If compound have molport ID exists,
          assupms that it is commercial.
@@ -58,10 +64,10 @@ class Molport:
            "User Name": self.username,
            "Authentication Code": self.password,
            "Structure": smiles,
-           "Search Type": 4,
+           "Search Type": search_type.value,
            "Maximum Search Time": 60000,
-           "Maximum Result Count": 10000,
-           "Chemical Similarity Index": 1
+           "Maximum Result Count": max_results,
+           "Chemical Similarity Index": similarity
         }
         similarity_request = self.client.post('https://api.molport.com/api/chemical-search/search', json=payload)
         if similarity_request.status_code != 200:
@@ -75,13 +81,11 @@ class Molport:
         except ValidationError as e:
             logging.error(e)
             return MolportCompound(smiles, None)
-        try:
-            print(response)
-            molport_id = response.data.molecules[0].molport_id
-            logging.debug(f'Molport ID: {molport_id}')
-        except:
-            molport_id = None
-        return MolportCompound(smiles, molport_id)
+        print(response)
+        mols = response.data.molecules
+        if not mols:
+            return MolportCompound(smiles, None)
+        return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
 
     def get_compound_suppliers(self, molport_id: str, as_df: bool = True) -> Union[pd.DataFrame, Dict]:
