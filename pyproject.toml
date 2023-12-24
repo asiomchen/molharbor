@@ -120,7 +120,9 @@ dependencies = [ # Optional
 # projects.
 [project.optional-dependencies] # Optional
 dev = ["check-manifest"]
-test = ["pytest", "pytest-cov"]
+test = [
+  "pytest",
+  "pytest-cov"]
 
 # List URLs that are relevant to your project
 #
@@ -146,6 +148,7 @@ test = ["pytest", "pytest-cov"]
 [tool.setuptools]
 # If there are data files included in your packages that need to be
 # installed, specify them here.
+py-modules = []
 package-data = {"sample" = ["*.dat"]}
 
 [build-system]
