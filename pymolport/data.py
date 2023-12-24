@@ -9,7 +9,7 @@ class Molecule(BaseModel):
     canonical_smiles: str = Field(alias='Canonical SMILES')
     verified_amount: float = Field(alias='Verified Amount')
     unverified_amount: float = Field(alias='Unverified Amount')
-    similariy_index: float = Field(alias='Similarity Index')
+    similarity_index: float = Field(alias='Similarity Index')
 
 
 class Data(BaseModel):

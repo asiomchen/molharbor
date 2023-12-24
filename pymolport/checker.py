@@ -77,7 +77,7 @@ class Molport:
         print(response)
         mols = response.data.molecules
         if not mols:
-            return MolportCompound(smiles, None)
+            return None
         return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
 
