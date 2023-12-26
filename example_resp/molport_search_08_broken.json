@@ -1,0 +1,333 @@
+{
+  "Result": {
+    "Status": 1,
+    "Message": "Similarity search completed!"
+  },
+  "Data": {
+    "Molecules": [
+      {
+        "Id": 1740297,
+        "MolPort Id": "Molport-001-740-297",
+        "Verified Amount": 22475000,
+        "Unverified Amount": 25000000,
+        "Similarity Index": 1.0
+      },
+      {
+        "Id": 1779704,
+        "MolPort Id": "Molport-001-779-704",
+        "SMILES": "O=C(OC(=O)c1ccccc1)c1ccccc1",
+        "Canonical SMILES": "O=C(OC(=O)c1ccccc1)c1ccccc1",
+        "Verified Amount": 35000000,
+        "Unverified Amount": 35000000,
+        "Similarity Index": 0.9705882
+      },
+      {
+        "Id": 579604,
+        "MolPort Id": "Molport-000-579-604",
+        "SMILES": "Cc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "Cc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 200000,
+        "Unverified Amount": 200000,
+        "Similarity Index": 0.92957747
+      },
+      {
+        "Id": 35790219,
+        "MolPort Id": "Molport-035-790-219",
+        "SMILES": "O=Cc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "O=Cc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 10000,
+        "Unverified Amount": 10000,
+        "Similarity Index": 0.9166667
+      },
+      {
+        "Id": 1630278,
+        "MolPort Id": "Molport-001-630-278",
+        "SMILES": "CCOC(=O)c1ccc(COC(=O)c2ccc(C=O)cc2)cc1",
+        "Canonical SMILES": "CCOC(=O)c1ccc(COC(=O)c2ccc(C=O)cc2)cc1",
+        "Verified Amount": 100,
+        "Unverified Amount": 100,
+        "Similarity Index": 0.9041096
+      },
+      {
+        "Id": 1762647,
+        "MolPort Id": "Molport-001-762-647",
+        "SMILES": "Cc1ccc(cc1)C(=O)OC(=O)c1ccc(C)cc1",
+        "Canonical SMILES": "Cc1ccc(cc1)C(=O)OC(=O)c1ccc(C)cc1",
+        "Verified Amount": 120000,
+        "Unverified Amount": 120000,
+        "Similarity Index": 0.9041096
+      },
+      {
+        "Id": 2258296,
+        "MolPort Id": "Molport-002-258-296",
+        "SMILES": "COC(=O)c1ccc(COC(=O)c2ccc(cc2)C(=O)OCc2ccc(cc2)C(=O)OC)cc1",
+        "Canonical SMILES": "COC(=O)c1ccc(COC(=O)c2ccc(cc2)C(=O)OCc2ccc(cc2)C(=O)OC)cc1",
+        "Verified Amount": 100,
+        "Unverified Amount": 100,
+        "Similarity Index": 0.9041096
+      },
+      {
+        "Id": 3804841,
+        "MolPort Id": "Molport-003-804-841",
+        "SMILES": "OC(=O)c1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "OC(=O)c1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 90000,
+        "Unverified Amount": 90000,
+        "Similarity Index": 0.9041096
+      },
+      {
+        "Id": 4959762,
+        "MolPort Id": "Molport-004-959-762",
+        "SMILES": "O=C(OCc1ccccc1)c1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "O=C(OCc1ccccc1)c1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 500,
+        "Unverified Amount": 500,
+        "Similarity Index": 0.9041096
+      },
+      {
+        "Id": 1783862,
+        "MolPort Id": "Molport-001-783-862",
+        "SMILES": "CCOC(=O)c1ccccc1",
+        "Canonical SMILES": "CCOC(=O)c1ccccc1",
+        "Verified Amount": 19500000,
+        "Unverified Amount": 19500000,
+        "Similarity Index": 0.8787879
+      },
+      {
+        "Id": 4468627,
+        "MolPort Id": "Molport-004-468-627",
+        "SMILES": "CC(=O)OCc1ccc(cc1)C(O)=O",
+        "Canonical SMILES": "CC(=O)OCc1ccc(cc1)C(O)=O",
+        "Verified Amount": 200000,
+        "Unverified Amount": 200000,
+        "Similarity Index": 0.8630137
+      },
+      {
+        "Id": 47351799,
+        "MolPort Id": "Molport-047-351-799",
+        "SMILES": "[Cr;v0].[C-]#[O+].[C-]#[O+].[C-]#[O+].[#6]-[#6]-[#8]-[#6](=O)-c1ccccc1",
+        "Canonical SMILES": "[Cr].[C-]#[O+].[C-]#[O+].[C-]#[O+].CCOC(=O)c1ccccc1",
+        "Verified Amount": 0,
+        "Unverified Amount": 5000,
+        "Similarity Index": 0.85294116
+      },
+      {
+        "Id": 583030,
+        "MolPort Id": "Molport-000-583-030",
+        "SMILES": "Cc1cccc(c1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "Cc1cccc(c1)C(=O)OCc1ccccc1",
+        "Verified Amount": 100,
+        "Unverified Amount": 100,
+        "Similarity Index": 0.835443
+      },
+      {
+        "Id": 51611362,
+        "MolPort Id": "Molport-051-611-362",
+        "SMILES": "O=C(OCc1ccc2ccccc2c1)c1ccccc1",
+        "Canonical SMILES": "O=C(OCc1ccc2ccccc2c1)c1ccccc1",
+        "Verified Amount": 0,
+        "Unverified Amount": 0,
+        "Similarity Index": 0.835443
+      },
+      {
+        "Id": 882050,
+        "MolPort Id": "Molport-000-882-050",
+        "SMILES": "O=C1OCc2ccccc12",
+        "Canonical SMILES": "O=C1OCc2ccccc12",
+        "Verified Amount": 58000000,
+        "Unverified Amount": 58000000,
+        "Similarity Index": 0.825
+      },
+      {
+        "Id": 2092620,
+        "MolPort Id": "Molport-002-092-620",
+        "SMILES": "O=C(OCc1ccc(cc1)C#N)c1ccccc1",
+        "Canonical SMILES": "O=C(OCc1ccc(cc1)C#N)c1ccccc1",
+        "Verified Amount": 100,
+        "Unverified Amount": 100,
+        "Similarity Index": 0.825
+      },
+      {
+        "Id": 3910252,
+        "MolPort Id": "Molport-003-910-252",
+        "SMILES": "CC(OC(=O)c1ccccc1)c1ccccc1",
+        "Canonical SMILES": "CC(OC(=O)c1ccccc1)c1ccccc1",
+        "Verified Amount": 0,
+        "Unverified Amount": 5000,
+        "Similarity Index": 0.825
+      },
+      {
+        "Id": 1783863,
+        "MolPort Id": "Molport-001-783-863",
+        "SMILES": "CCCOC(=O)c1ccccc1",
+        "Canonical SMILES": "CCCOC(=O)c1ccccc1",
+        "Verified Amount": 6000000,
+        "Unverified Amount": 6000000,
+        "Similarity Index": 0.8194444
+      },
+      {
+        "Id": 6112265,
+        "MolPort Id": "Molport-006-112-265",
+        "SMILES": "CC(C)(C)OC(=O)c1ccccc1",
+        "Canonical SMILES": "CC(C)(C)OC(=O)c1ccccc1",
+        "Verified Amount": 900000,
+        "Unverified Amount": 900000,
+        "Similarity Index": 0.8194444
+      },
+      {
+        "Id": 6117713,
+        "MolPort Id": "Molport-006-117-713",
+        "SMILES": "CCOC(=O)c1ccc(C=O)cc1",
+        "Canonical SMILES": "CCOC(=O)c1ccc(C=O)cc1",
+        "Verified Amount": 150000,
+        "Unverified Amount": 150000,
+        "Similarity Index": 0.8194444
+      },
+      {
+        "Id": 22369877,
+        "MolPort Id": "Molport-022-369-877",
+        "SMILES": "O=CCOC(=O)c1ccccc1",
+        "Canonical SMILES": "O=CCOC(=O)c1ccccc1",
+        "Verified Amount": 3000,
+        "Unverified Amount": 3000,
+        "Similarity Index": 0.8194444
+      },
+      {
+        "Id": 1783867,
+        "MolPort Id": "Molport-001-783-867",
+        "SMILES": "CC(=O)OCc1ccccc1",
+        "Canonical SMILES": "CC(=O)OCc1ccccc1",
+        "Verified Amount": 17450000,
+        "Unverified Amount": 17450000,
+        "Similarity Index": 0.8181818
+      },
+      {
+        "Id": 146012,
+        "MolPort Id": "Molport-000-146-012",
+        "SMILES": "CCOC(=O)c1ccc(C)cc1",
+        "Canonical SMILES": "CCOC(=O)c1ccc(C)cc1",
+        "Verified Amount": 13500000,
+        "Unverified Amount": 13500000,
+        "Similarity Index": 0.8169014
+      },
+      {
+        "Id": 518995,
+        "MolPort Id": "Molport-000-518-995",
+        "SMILES": "Oc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "Oc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 500000,
+        "Unverified Amount": 500000,
+        "Similarity Index": 0.8148148
+      },
+      {
+        "Id": 2258942,
+        "MolPort Id": "Molport-002-258-942",
+        "SMILES": "COC(=O)c1ccc(COC(=O)c2ccc(cc2)C(C)(C)C)cc1",
+        "Canonical SMILES": "COC(=O)c1ccc(COC(=O)c2ccc(cc2)C(C)(C)C)cc1",
+        "Verified Amount": 100,
+        "Unverified Amount": 100,
+        "Similarity Index": 0.8148148
+      },
+      {
+        "Id": 47976101,
+        "MolPort Id": "Molport-047-976-101",
+        "SMILES": "OCCc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "OCCc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 0,
+        "Unverified Amount": 2500,
+        "Similarity Index": 0.8148148
+      },
+      {
+        "Id": 3987070,
+        "MolPort Id": "Molport-003-987-070",
+        "SMILES": "CCOC(=O)c1ccc(cc1)C(=O)OCC",
+        "Canonical SMILES": "CCOC(=O)c1ccc(cc1)C(=O)OCC",
+        "Verified Amount": 6000000,
+        "Unverified Amount": 6000000,
+        "Similarity Index": 0.8082192
+      },
+      {
+        "Id": 6832572,
+        "MolPort Id": "Molport-006-832-572",
+        "SMILES": "CCOC(=O)c1ccc(cc1)C(O)=O",
+        "Canonical SMILES": "CCOC(=O)c1ccc(cc1)C(O)=O",
+        "Verified Amount": 120000,
+        "Unverified Amount": 120000,
+        "Similarity Index": 0.8082192
+      },
+      {
+        "Id": 46196185,
+        "MolPort Id": "Molport-046-196-185",
+        "SMILES": "CCOC(=O)c1ccc(cc1)C(=O)OC",
+        "Canonical SMILES": "CCOC(=O)c1ccc(cc1)C(=O)OC",
+        "Verified Amount": 25000,
+        "Unverified Amount": 25000,
+        "Similarity Index": 0.8082192
+      },
+      {
+        "Id": 3855298,
+        "MolPort Id": "Molport-003-855-298",
+        "SMILES": "CC(C)OC(=O)c1ccccc1",
+        "Canonical SMILES": "CC(C)OC(=O)c1ccccc1",
+        "Verified Amount": 2800000,
+        "Unverified Amount": 2800000,
+        "Similarity Index": 0.8055556
+      },
+      {
+        "Id": 583031,
+        "MolPort Id": "Molport-000-583-031",
+        "SMILES": "Fc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "Fc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 120000,
+        "Unverified Amount": 120000,
+        "Similarity Index": 0.80487806
+      },
+      {
+        "Id": 1762611,
+        "MolPort Id": "Molport-001-762-611",
+        "SMILES": "Cc1cccc(c1)C(=O)OC(=O)c1cccc(C)c1",
+        "Canonical SMILES": "Cc1cccc(c1)C(=O)OC(=O)c1cccc(C)c1",
+        "Verified Amount": 0,
+        "Unverified Amount": 5000,
+        "Similarity Index": 0.80487806
+      },
+      {
+        "Id": 1798358,
+        "MolPort Id": "Molport-001-798-358",
+        "SMILES": "Clc1ccc(COC(=O)c2ccccc2)cc1",
+        "Canonical SMILES": "Clc1ccc(COC(=O)c2ccccc2)cc1",
+        "Verified Amount": 0,
+        "Unverified Amount": 5000,
+        "Similarity Index": 0.80487806
+      },
+      {
+        "Id": 1828831,
+        "MolPort Id": "Molport-001-828-831",
+        "SMILES": "Nc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Canonical SMILES": "Nc1ccc(cc1)C(=O)OCc1ccccc1",
+        "Verified Amount": 90000,
+        "Unverified Amount": 90000,
+        "Similarity Index": 0.80487806
+      },
+      {
+        "Id": 2266780,
+        "MolPort Id": "Molport-002-266-780",
+        "SMILES": "Cc1ccc(cc1)C(=O)OCc1ccc(cc1)C#N",
+        "Canonical SMILES": "Cc1ccc(cc1)C(=O)OCc1ccc(cc1)C#N",
+        "Verified Amount": 100,
+        "Unverified Amount": 100,
+        "Similarity Index": 0.80487806
+      },
+      {
+        "Id": 44560238,
+        "MolPort Id": "Molport-044-560-238",
+        "SMILES": "Cc1ccccc1C(=O)OC(=O)c1ccccc1C",
+        "Canonical SMILES": "Cc1ccccc1C(=O)OC(=O)c1ccccc1C",
+        "Verified Amount": 0,
+        "Unverified Amount": 5000,
+        "Similarity Index": 0.80487806
+      }
+    ],
+    "Version": "v.1.0"
+  }
+}
