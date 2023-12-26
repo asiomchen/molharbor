@@ -1,7 +1,5 @@
-from tkinter import N
 import pytest
 from pymolport.checker import Molport, SearchType, UnknownSearchTypeException
-from typing import Iterable
 
 def test_find_single_smiles():
     molport = Molport()
