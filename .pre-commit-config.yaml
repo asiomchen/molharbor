@@ -2,12 +2,6 @@ repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
-    -   id: debug-statements
-    -   id: double-quote-string-fixer
-    -   id: name-tests-test
     -   id: requirements-txt-fixer
 - repo: https://github.com/astral-sh/ruff-pre-commit
   # Ruff version.
@@ -15,14 +9,5 @@ repos:
   hooks:
     # Run the linter.
     - id: ruff
-      args: [ --fix ]
-# Using this mirror lets us use mypyc-compiled black, which is about 2x faster
-# - repo: https://github.com/psf/black-pre-commit-mirror
-#   rev: 23.12.1
-#   hooks:
-#     - id: black
-#         # It is recommended to specify the latest version of Python
-#         # supported by your project here, or alternatively use
-#         # pre-commit's default_language_version, see
-#         # https://pre-commit.com/#top_level-default_language_version
-#       language_version: python3.9
+    # Run the formatter.
+    - id: ruff-format
