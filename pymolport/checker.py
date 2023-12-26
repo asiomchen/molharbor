@@ -41,6 +41,8 @@ class Molport:
     def api_key(self, value):
         self._api_key = value
         print("API key is set and will be used as default for all requests")
+        self._username = None
+        self._password = None
 
     @property
     def username(self):
