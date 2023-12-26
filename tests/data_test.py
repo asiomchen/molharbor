@@ -4,17 +4,18 @@ from pathlib import Path
 from pymolport.data import Molecule, Data, Result, Response
 
 example_mol = {
-        "Id": 2266780,
-        "MolPort Id": "Molport-002-266-780",
-        "SMILES": "Cc1ccc(cc1)C(=O)OCc1ccc(cc1)C#N",
-        "Canonical SMILES": "Cc1ccc(cc1)C(=O)OCc1ccc(cc1)C#N",
-        "Verified Amount": 100,
-        "Unverified Amount": 100,
-        "Similarity Index": 0.80487806
-      }
+    "Id": 2266780,
+    "MolPort Id": "Molport-002-266-780",
+    "SMILES": "Cc1ccc(cc1)C(=O)OCc1ccc(cc1)C#N",
+    "Canonical SMILES": "Cc1ccc(cc1)C(=O)OCc1ccc(cc1)C#N",
+    "Verified Amount": 100,
+    "Unverified Amount": 100,
+    "Similarity Index": 0.80487806,
+}
 
 EXAMPLE_PATH = Path("example_resp")
 SUCCESSFUL_SEARCH_PATH = EXAMPLE_PATH / "molport_search.json"
+
 
 def test_molecule():
     mol = Molecule(**example_mol)
@@ -25,6 +26,7 @@ def test_molecule():
     assert mol.verified_amount == 100.0
     assert mol.unverified_amount == 100.0
     assert mol.similarity_index == 0.80487806
+
 
 def test_search_response():
     with open(SUCCESSFUL_SEARCH_PATH) as f:
@@ -41,4 +43,3 @@ def test_search_response():
     assert resp.data.molecules[0].verified_amount == 22475000.0
     assert resp.data.molecules[0].unverified_amount == 25000000.0
     assert resp.data.molecules[0].similarity_index == 1.0
-
