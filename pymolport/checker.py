@@ -5,29 +5,77 @@ from dataclasses import dataclass, field
 import logging
 from typing import List, Dict, Optional, Union, Iterable
 from pymolport.data import Response
-from pymolport.exceptions import UnknownSearchTypeException
+from pymolport.exceptions import LoginError, UnknownSearchTypeException
 from pymolport.enums import SearchType, ResultStatus
 from pydantic import ValidationError
 
 
 class Molport:
-    username = "john.spade"
-    password = "fasdga34a3"
-
     def __init__(self):
-        self.payload = {
-            "User Name": self.username,
-            "Authentication Code": self.password,
-            "Structure": None,
-            "Search Type": "EXACT",
-            "Maximum Search Time": 60000,
-            "Maximum Result Count": 1000,
-            "Chemical Similarity Index": 1,
-        }
         self.client = httpx.Client()
+        self._api_key = None
+        self._username = None
+        self._password = None
+        # i don't know if this is a good idea, but credentials from the docs are here and working
+        self.login(username="john.spade", password="fasdga34a3")
 
     def __repr__(self) -> str:
         return type(self).__name__ + "()"
+
+    @property
+    def credentials(self):
+        if self.api_key:
+            return {"API Key": self.api_key}
+        elif self.username and self.password:
+            return {"User Name": self.username, "Authentication Code": self.password}
+        else:
+            raise ValueError(
+                "No credentials provided are set, please set api_key or username and password with login()"
+            )
+
+    @property
+    def api_key(self):
+        return self._api_key
+
+    @api_key.setter
+    def api_key(self, value):
+        self._api_key = value
+        print("API key is set and will be used as default for all requests")
+
+    @property
+    def username(self):
+        return self._username
+
+    @username.setter
+    def username(self, value):
+        self._username = value
+
+    @property
+    def password(self):
+        return self._password
+
+    @password.setter
+    def password(self, value):
+        self._password = value
+
+    def login(
+        self,
+        username: Optional[str] = None,
+        password: Optional[str] = None,
+        api_key: Optional[str] = None,
+    ):
+        """
+        Login to Molport API. If api_key is provided, it will be used as default for all requests.
+        """
+        if all([username, password, api_key]):
+            raise LoginError("Please provide either username and password or api_key")
+        elif api_key:
+            self._api_key = api_key
+        elif username and password:
+            self._username = username
+            self._password = password
+        else:
+            raise LoginError("Please provide either username and password or api_key")
 
     def find(
         self,
@@ -65,14 +113,14 @@ class Molport:
         :return:
         """
         payload = {
-            "User Name": self.username,
-            "Authentication Code": self.password,
             "Structure": smiles,
             "Search Type": search_type.value,
             "Maximum Search Time": 60000,
             "Maximum Result Count": max_results,
             "Chemical Similarity Index": similarity,
         }
+        creds = self.credentials
+        payload.update(creds)
         similarity_request = self.client.post(
             "https://api.molport.com/api/chemical-search/search", json=payload
         )
@@ -86,7 +134,8 @@ class Molport:
                 return None
         except ValidationError as e:
             logging.error(e)
-            return MolportCompound(smiles, None)
+            print(e)
+            return None
         print(response)
         mols = response.data.molecules
         if not mols:

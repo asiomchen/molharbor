@@ -6,11 +6,11 @@ import numpy as np
 class Molecule(BaseModel):
     id: int = Field(..., alias="Id")
     molport_id: str = Field(..., alias="MolPort Id")
-    smiles: str = Field(..., alias="SMILES")
-    canonical_smiles: str = Field(alias="Canonical SMILES")
-    verified_amount: float = Field(alias="Verified Amount")
-    unverified_amount: float = Field(alias="Unverified Amount")
-    similarity_index: float = Field(alias="Similarity Index")
+    smiles: str = Field(None, alias="SMILES")
+    canonical_smiles: str = Field(None, alias="Canonical SMILES")
+    verified_amount: float = Field(None, alias="Verified Amount")
+    unverified_amount: float = Field(None, alias="Unverified Amount")
+    similarity_index: float = Field(None, alias="Similarity Index")
 
 
 class Data(BaseModel):
@@ -29,13 +29,13 @@ class Response(BaseModel):
 
 
 class AvailablePacking(BaseModel):
-    Amount: float = Field(np.nan, alias="Amount")
-    Measure: str
-    Measure_Id: int = Field(alias="Measure Id")
-    Price: float
-    Currency: str
-    Currency_Id: int = Field(alias="Currency Id")
-    Delivery_Days: int = Field(alias="Delivery Days")
+    amount: float = Field(np.nan, alias="Amount")
+    measure: str = Field(alias="Measure")
+    measure_id: int = Field(alias="Measure Id")
+    price: float = Field(alias="Price")
+    currency: str = Field(alias="currency")
+    currency_id: int = Field(alias="Currency Id")
+    delivery_days: int = Field(alias="Delivery Days")
 
 
 class Catalog(BaseModel):

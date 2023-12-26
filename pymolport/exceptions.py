@@ -10,3 +10,9 @@ class UnknownSearchTypeException(ValueError):
         super().__init__(
             f"Unknown search type: {search_type}. Expected one of: {list(SearchType)}"
         )
+
+
+class LoginError(Exception):
+    """Exception raised when login fails."""
+
+    pass
