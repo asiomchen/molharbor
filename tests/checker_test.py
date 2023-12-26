@@ -4,7 +4,7 @@ from pymolport.checker import Molport, SearchType, UnknownSearchTypeException
 
 def test_find_single_smiles():
     molport = Molport()
-    smiles = "C1=CC=CC=C1"
+    smiles = 'C1=CC=CC=C1'
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
@@ -17,7 +17,7 @@ def test_find_single_smiles():
 
 def test_find_multiple_smiles():
     molport = Molport()
-    smiles = ["C1=CC=CC=C1", "C1=CC=CC=C2C(=C1)C=CC=C2"]
+    smiles = ['C1=CC=CC=C1', 'C1=CC=CC=C2C(=C1)C=CC=C2']
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
@@ -29,19 +29,19 @@ def test_find_multiple_smiles():
 
 
 @pytest.mark.parametrize(
-    "search_type",
+    'search_type',
     [
-        "exact",
-        "similarity",
-        "substructure",
-        "superstructure",
+        'exact',
+        'similarity',
+        'substructure',
+        'superstructure',
         10,
         100,
     ],
 )
 def test_find_invalid_search_type(search_type):
     molport = Molport()
-    smiles = "C1=CC=CC=C1"
+    smiles = 'C1=CC=CC=C1'
     max_results = 1000
     similarity = 0.9
 
@@ -50,10 +50,10 @@ def test_find_invalid_search_type(search_type):
 
 
 @pytest.mark.parametrize(
-    "smiles",
+    'smiles',
     [
-        "VCX",
-        "cCcccc123",
+        'VCX',
+        'cCcccc123',
     ],
 )
 def test_find_invalid_smiles(smiles):
