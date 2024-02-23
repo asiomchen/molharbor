@@ -1,5 +1,5 @@
 import pytest
-from pymolport.checker import Molport, SearchType, UnknownSearchTypeException
+from molharbor.checker import Molport, SearchType, UnknownSearchTypeException
 
 
 def test_find_single_smiles():

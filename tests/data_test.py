@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from pymolport.data import Molecule, Response
+from molharbor.data import Molecule, Response
 
 example_mol = {
     "Id": 2266780,
