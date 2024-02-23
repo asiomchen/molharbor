@@ -85,6 +85,7 @@ class Molport:
         search_type: Union[SearchType, int] = SearchType.EXACT,
         max_results: int = 1000,
         similarity: Optional[float] = 0.9,
+        return_response: bool = False,
     ) -> List[List[MolportCompound]]:
         try:
             search_type = SearchType(search_type)
@@ -95,7 +96,9 @@ class Molport:
             smiles = [smiles]
         if isinstance(smiles, Iterable):
             return [
-                self._find(s, SearchType(search_type), max_results, similarity)
+                self._find(
+                    s, SearchType(search_type), max_results, similarity, return_response
+                )
                 for s in smiles
             ]
         else:
@@ -107,6 +110,7 @@ class Molport:
         search_type: SearchType,
         max_results: int,
         similarity: Optional[float] = 0.9,
+        return_response: bool = False,
     ) -> List[MolportCompound]:
         """
         Finds the Molport ID of a compound. If compound have molport ID exists,
@@ -138,7 +142,8 @@ class Molport:
             logging.error(e)
             print(e)
             return None
-        print(response)
+        if return_response:
+            return response
         mols = response.data.molecules
         if not mols:
             return None
