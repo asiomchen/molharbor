@@ -86,7 +86,7 @@ class Molport:
         max_results: int = 1000,
         similarity: Optional[float] = 0.9,
         return_response: bool = False,
-    ) -> List[List[MolportCompound | Response]] | List[MolportCompound | Response]:
+    ) -> List[List[MolportCompound | Response]]:
         try:
             search_type = SearchType(search_type)
         except ValueError:
@@ -101,8 +101,8 @@ class Molport:
                 )
                 for s in smiles
             ]
-            if len(result) == 1:
-                return result[0]
+            return result
+
         else:
             raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
 
