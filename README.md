@@ -96,3 +96,22 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=
   MolportCompound(smiles='[Na+].[Na+].OC(=O)CN(CC([O-])=O)Cc1cc2c(Oc3cc(O)c(CN(CC(O)=O)CC([O-])=O)cc3C22OC(=O)c3ccccc23)cc1O', molport_id='Molport-051-435-130', link='https://www.molport.com/shop/compound/Molport-051-435-130')]]
 
 ```
+
+#### Raw response manipulation
+
+MolHarbour design to simplify commonn tasks so `.find()` method returns a list of `MolportCompound` objects (which a dataclass object with `smiles`, `molport_id` and `link` field). However, you can access the raw response using the `return_raw` parameter. Returned `Response` object inherits from Pydantic `BaseModel` and contains all the fields from the Molport API response with type validation provided by Pydantic.
+All the fields have the same name as in Molport API docs, only the spaces replaced with underscores( eg Shipment Type -> Shipment_Type)
+
+```python
+from molharbor.checker import SearchType
+molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=1, return_response=False)
+
+[[MolportCompound(smiles='OC(=O)c1cc(C#N)c(Cl)cc1Cl', molport_id='Molport-051-434-827', link='https://www.molport.com/shop/compound/Molport-051-434-827')]]
+```
+vs
+
+```python
+molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=1, return_response=True)
+
+[Response(result=Result(status=1, message='Substructure search completed!'), data=Data(molecules=[Molecule(id=45........
+```
