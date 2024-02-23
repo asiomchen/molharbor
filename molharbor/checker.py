@@ -86,7 +86,7 @@ class Molport:
         max_results: int = 1000,
         similarity: Optional[float] = 0.9,
         return_response: bool = False,
-    ) -> List[List[MolportCompound]]:
+    ) -> List[List[MolportCompound | Response]] | List[MolportCompound | Response]:
         try:
             search_type = SearchType(search_type)
         except ValueError:
@@ -95,12 +95,14 @@ class Molport:
         if isinstance(smiles, str):
             smiles = [smiles]
         if isinstance(smiles, Iterable):
-            return [
+            result = [
                 self._find(
                     s, SearchType(search_type), max_results, similarity, return_response
                 )
                 for s in smiles
             ]
+            if len(result) == 1:
+                return result[0]
         else:
             raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
 
