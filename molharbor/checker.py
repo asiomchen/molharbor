@@ -77,7 +77,9 @@ class Molport:
             self._username = username
             self._password = password
         else:
-            raise LoginError("Please provide either username and password or api_key")
+            raise LoginError(
+                "Please provide either username and password or api_key to login"
+            )
 
     def find(
         self,
@@ -86,7 +88,7 @@ class Molport:
         max_results: int = 1000,
         similarity: Optional[float] = 0.9,
         return_response: bool = False,
-    ) -> List[List[MolportCompound | Response]]:
+    ) -> List[List[MolportCompound | None] | Response]:
         try:
             search_type = SearchType(search_type)
         except ValueError:
@@ -113,7 +115,7 @@ class Molport:
         max_results: int,
         similarity: Optional[float] = 0.9,
         return_response: bool = False,
-    ) -> List[MolportCompound]:
+    ) -> List[MolportCompound | Response | None]:
         """
         Finds the Molport ID of a compound. If compound have molport ID exists,
          assupms that it is commercial.
@@ -134,21 +136,21 @@ class Molport:
         )
         if similarity_request.status_code != 200:
             logging.error(f"Error code: {similarity_request.status_code}")
-            return None
+            return [None]
         try:
             response = Response(**similarity_request.json())
             if response.result.status != ResultStatus.SUCCESS.value:
                 logging.error(response.result.message)
-                return None
+                return [None]
         except ValidationError as e:
             logging.error(e)
             print(e)
-            return None
+            return [None]
         if return_response:
             return response
         mols = response.data.molecules
         if not mols:
-            return None
+            return [None]
         return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
     def get_compound_suppliers(
