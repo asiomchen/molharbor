@@ -62,4 +62,4 @@ def test_find_invalid_smiles(smiles):
     max_results = 1000
     similarity = 0.9
     result = molport.find(smiles, search_type, max_results, similarity)
-    assert result == [None]
+    assert result == [[None]]

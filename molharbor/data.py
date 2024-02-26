@@ -39,62 +39,62 @@ class AvailablePacking(BaseModel):
 
 
 class Catalog(BaseModel):
-    Catalog_Id: int = Field(alias="Catalog Id")
-    Catalog_Number: str = Field(alias="Catalog Number")
-    Stock: Optional[float] = Field(None, alias="Stock")
-    Stock_Measure: Optional[str] = Field(None, alias="Stock Measure")
-    Stock_Measure_Id: Optional[int] = Field(None, alias="Stock Measure Id")
-    Purity: str = Field("unknown", alias="Purity")
-    Last_Update_Date: str = Field(alias="Last Update Date")
-    Last_Update_Date_Exact: str = Field(alias="Last Update Date Exact")
-    Available_Packings: List[AvailablePacking] = Field(alias="Available Packings")
+    catalog_id: int = Field(alias="Catalog Id")
+    catalog_number: str = Field(alias="Catalog Number")
+    stock: Optional[float] = Field(None, alias="Stock")
+    stock_measure: Optional[str] = Field(None, alias="Stock Measure")
+    stock_measure_id: Optional[int] = Field(None, alias="Stock Measure Id")
+    purity: str = Field("unknown", alias="Purity")
+    last_update_date: str = Field(alias="Last Update Date")
+    last_update_date_exact: str = Field(alias="Last Update Date Exact")
+    available_packings: List[AvailablePacking] = Field(alias="Available Packings")
 
 
 class Supplier(BaseModel):
-    Supplier_Name: str = Field(alias="Supplier Name")
-    Supplier_Id: int = Field(alias="Supplier Id")
-    Minimum_Order: int = Field(alias="Minimum Order")
-    Currency: str
-    Currency_Id: int = Field(alias="Currency Id")
-    Catalogues: List[Catalog]
+    supplier_name: str = Field(alias="Supplier Name")
+    supplier_id: int = Field(alias="Supplier Id")
+    minimum_order: int = Field(alias="Minimum Order")
+    currency: str
+    currency_id: int = Field(alias="Currency Id")
+    catalogues: List[Catalog]
 
 
 class BagOfSuppliers(BaseModel):
-    Screening_Block_Suppliers: Optional[List[Supplier]] = Field(
+    screening_block_suppliers: Optional[List[Supplier]] = Field(
         alias="Screening Block Suppliers"
     )
-    Building_Block_Suppliers: Optional[List[Supplier]] = Field(
+    building_block_suppliers: Optional[List[Supplier]] = Field(
         alias="Building Block Suppliers"
     )
-    Virtual_Suppliers: Optional[List[Supplier]] = Field(alias="Virtual Suppliers")
+    virtual_suppliers: Optional[List[Supplier]] = Field(alias="Virtual Suppliers")
 
 
 class ShipmentCost(BaseModel):
-    Price: float
-    Currency: str
-    Currency_Id: int = Field(alias="Currency Id")
-    Location_Type: str = Field(alias="Location Type")
-    Location: str
-    Location_Id: int = Field(alias="Location Id")
-    Shipment_Type: str = Field(alias="Shipment Type")
-    Shipment_Type_Id: int = Field(alias="Shipment Type Id")
+    price: float
+    currency: str
+    currency_Id: int = Field(alias="Currency Id")
+    location_Type: str = Field(alias="Location Type")
+    location: str
+    location_id: int = Field(alias="Location Id")
+    shipment_type: str = Field(alias="Shipment Type")
+    shipment_type_id: int = Field(alias="Shipment Type Id")
 
 
 class Molecule2(BaseModel):
-    Id: int = Field(..., alias="Id")
-    Molport_Id: str = Field(..., alias="Molport Id")
-    SMILES: str = Field(..., alias="SMILES")
-    Canonical_SMILES: str = Field(..., alias="Canonical SMILES")
-    IUPAC: str
-    Formula: str
-    Molecular_Weight: float = Field(..., alias="Molecular Weight")
-    Status: str
-    Type: str
-    Largest_Stock: str = Field(..., alias="Largest Stock")
-    Largest_Stock_Measure: str = Field(..., alias="Largest Stock Measure")
-    Largest_Stock_Measure_Id: int = Field(..., alias="Largest Stock Measure Id")
-    Catalogues: BagOfSuppliers = Field(..., alias="Catalogues")
-    Synonyms: List[str]
+    id: int = Field(..., alias="Id")
+    molport_id: str = Field(..., alias="Molport Id")
+    smiles: str = Field(..., alias="SMILES")
+    canonical_smiles: str = Field(..., alias="Canonical SMILES")
+    iupac: str
+    formula: str
+    molecular_weight: float = Field(..., alias="Molecular Weight")
+    status: str
+    type: str
+    targest_stock: str = Field(..., alias="Largest Stock")
+    largest_stock_measure: str = Field(..., alias="Largest Stock Measure")
+    largest_stock_measure_id: int = Field(..., alias="Largest Stock Measure Id")
+    catalogues: BagOfSuppliers = Field(..., alias="Catalogues")
+    synonyms: List[str]
 
 
 class DataSupplier(BaseModel):
