@@ -33,7 +33,7 @@ class AvailablePacking(BaseModel):
     measure: str = Field(alias="Measure")
     measure_id: int = Field(alias="Measure Id")
     price: float = Field(alias="Price")
-    currency: str = Field(alias="currency")
+    currency: str = Field(alias="Currency")
     currency_id: int = Field(alias="Currency Id")
     delivery_days: int = Field(alias="Delivery Days")
 
@@ -54,9 +54,9 @@ class Supplier(BaseModel):
     supplier_name: str = Field(alias="Supplier Name")
     supplier_id: int = Field(alias="Supplier Id")
     minimum_order: int = Field(alias="Minimum Order")
-    currency: str
+    currency: str = Field(alias="Currency")
     currency_id: int = Field(alias="Currency Id")
-    catalogues: List[Catalog]
+    catalogues: List[Catalog] = Field(alias="Catalogues")
 
 
 class BagOfSuppliers(BaseModel):
@@ -70,11 +70,11 @@ class BagOfSuppliers(BaseModel):
 
 
 class ShipmentCost(BaseModel):
-    price: float
-    currency: str
+    price: float = Field(alias="Price")
+    currency: str = Field(alias="Currency")
     currency_Id: int = Field(alias="Currency Id")
     location_Type: str = Field(alias="Location Type")
-    location: str
+    location: str = Field(alias="Location")
     location_id: int = Field(alias="Location Id")
     shipment_type: str = Field(alias="Shipment Type")
     shipment_type_id: int = Field(alias="Shipment Type Id")
@@ -85,16 +85,16 @@ class Molecule2(BaseModel):
     molport_id: str = Field(..., alias="Molport Id")
     smiles: str = Field(..., alias="SMILES")
     canonical_smiles: str = Field(..., alias="Canonical SMILES")
-    iupac: str
-    formula: str
+    iupac: str = Field(..., alias="IUPAC")
+    formula: str = Field(..., alias="Formula")
     molecular_weight: float = Field(..., alias="Molecular Weight")
-    status: str
-    type: str
+    status: str = Field(..., alias="Status")
+    type: str = Field(..., alias="Type")
     targest_stock: str = Field(..., alias="Largest Stock")
     largest_stock_measure: str = Field(..., alias="Largest Stock Measure")
     largest_stock_measure_id: int = Field(..., alias="Largest Stock Measure Id")
     catalogues: BagOfSuppliers = Field(..., alias="Catalogues")
-    synonyms: List[str]
+    synonyms: List[str] = Field(..., alias="Synonyms")
 
 
 class DataSupplier(BaseModel):

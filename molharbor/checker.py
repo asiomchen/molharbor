@@ -192,7 +192,7 @@ class Molport:
             )
             return merged
         else:
-            return results
+            return response
 
 
 @dataclass
