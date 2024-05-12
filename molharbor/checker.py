@@ -4,7 +4,7 @@ import httpx
 from dataclasses import dataclass, field
 import logging
 from typing import List, Dict, Optional, Union, Iterable
-from molharbor.data import Response
+from molharbor.data import Response, ResponseSupplier
 from molharbor.exceptions import LoginError, UnknownSearchTypeException
 from molharbor.enums import SearchType, ResultStatus
 from pydantic import ValidationError
@@ -154,45 +154,22 @@ class Molport:
         return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
     def get_compound_suppliers(
-        self, molport_id: str, as_df: bool = True
+        self, molport_id: str, return_response: bool = True
     ) -> Union[pd.DataFrame, Dict]:
-        molport_id_request = (
-            "https://api.molport.com/api/molecule/load?"
-            "molecule={}"
-            "&username=john.spade"
-            "&authenticationcode=fasdga34a3"
-        )
-        r2 = self.client.get(molport_id_request.format(molport_id))
-        response = r2.json()
-        results = response["Data"]["Molecule"]["Catalogues"][
-            "Screening Block Suppliers"
-        ]
-        if as_df:
-            df = pd.DataFrame()
-            for supplier in results:
-                df = df.append(supplier, ignore_index=True)
-            shipping_options = pd.DataFrame()
-            for s_cost, supplier in zip(df["Shipment Costs"], df["Supplier Name"]):
-                shipping_option = pd.DataFrame(
-                    s_cost, index=[supplier for i in range(len(s_cost))]
-                )
-                shipping_options = shipping_options.append(shipping_option)
-            catalogs = pd.DataFrame()
-            for s_cost, supplier in zip(df["Catalogues"], df["Supplier Name"]):
-                catalog = pd.DataFrame(
-                    s_cost, index=[supplier for i in range(len(s_cost))]
-                )
-                catalogs = catalogs.append(catalog)
-
-            merged = pd.merge(
-                shipping_options,
-                catalogs,
-                left_index=True,
-                right_index=True,
-            )
-            return merged
+        credentials = self.credentials
+        url = "https://api.molport.com/api/molecule/load?molecule={}"
+        if "API Key" in credentials:
+            url += "&apikey={}"
+            url = url.format(molport_id, self.api_key)
         else:
-            return response
+            url += "&username={}&password={}"
+            url = url.format(molport_id, self.username, self.password)
+
+        response = self.client.get(url)
+        if return_response:
+            return ResponseSupplier(**response.json())
+        else:
+            return None
 
 
 @dataclass
