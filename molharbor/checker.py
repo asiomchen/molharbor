@@ -87,6 +87,7 @@ class Molport:
         search_type: Union[SearchType, int] = SearchType.EXACT,
         max_results: int = 1000,
         similarity: Optional[float] = 0.9,
+        progress_bar: bool = False,
         return_response: bool = False,
     ) -> List[List[MolportCompound | None] | Response]:
         try:
@@ -96,17 +97,28 @@ class Molport:
 
         if isinstance(smiles, str):
             smiles = [smiles]
-        if isinstance(smiles, Iterable):
-            result = [
-                self._find(
-                    s, SearchType(search_type), max_results, similarity, return_response
-                )
-                for s in smiles
-            ]
-            return result
-
-        else:
+        elif not isinstance(smiles, Iterable):
             raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
+        if progress_bar and len(smiles) > 1:
+            # if jupyter notebook is used, use tqdm.notebook
+            if "IPython" in globals():
+                from tqdm.notebook import tqdm
+            else:
+                from tqdm import tqdm
+            inputs = tqdm(smiles)
+        else:
+            inputs = smiles
+        result = [
+            self._find(
+                smiles,
+                SearchType(search_type),
+                max_results,
+                similarity,
+                return_response,
+            )
+            for smiles in inputs
+        ]
+        return result
 
     def _find(
         self,
