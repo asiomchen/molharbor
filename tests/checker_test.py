@@ -1,5 +1,5 @@
 import pytest
-from molharbor.checker import Molport, SearchType, UnknownSearchTypeException
+from molharbor import Molport, SearchType, UnknownSearchTypeException
 
 
 @pytest.fixture

@@ -29,7 +29,7 @@ pip install git+https://github.com/asiomchen/molharbor
 To start using MolHarbour, you need to create an instance of the `Molport` class and log in to the Molport API using your username and password or API key.
 
 ```python
-from molharbor.checker import Molport
+from molharbor import Molport
 molport = Molport()
 molport.login(username="john.spade", password="fasdga34a3")
 ```
@@ -49,7 +49,7 @@ Additionally, you can specify the maximum number of results to return using the 
 #### Exact search
 
 ```python
-from molharbor.checker import SearchType
+from molharbor import SearchType
 molport.find("O=C(O)c1ccccc1", search_type=SearchType.EXACT)
 
 [[MolportCompound(smiles='OC(=O)c1ccccc1', molport_id='Molport-000-871-563', link='https://www.molport.com/shop/compound/Molport-000-871-563'),
@@ -107,7 +107,7 @@ However, you can access the raw response using the `return_response` parameter. 
 All the fields have the same name as in Molport API docs, only lowercase and the spaces are replaced with underscores( e.g. Shipment Type -> shipment_type)
 
 ```python
-from molharbor.checker import SearchType
+from molharbor import SearchType
 molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=1, return_response=False)
 
 [[MolportCompound(smiles='OC(=O)c1cc(C#N)c(Cl)cc1Cl', molport_id='Molport-051-434-827', link='https://www.molport.com/shop/compound/Molport-051-434-827')]]
