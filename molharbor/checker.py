@@ -3,7 +3,7 @@ import pandas as pd
 import httpx
 from dataclasses import dataclass, field
 import logging
-from typing import List, Dict, Optional, Union, Iterable
+from typing import List, Dict, Optional, Union, Iterable, cast
 from molharbor.data import Response, ResponseSupplier
 from molharbor.exceptions import LoginError, UnknownSearchTypeException
 from molharbor.enums import SearchType, ResultStatus
@@ -87,7 +87,7 @@ class Molport:
         similarity: Optional[float] = 0.9,
         progress_bar: bool = False,
         return_response: bool = False,
-    ) -> List[List[MolportCompound | None] | Response]:
+    ) -> List[List[MolportCompound] | Response]:
         try:
             search_type = SearchType(search_type)
         except ValueError:
@@ -116,7 +116,9 @@ class Molport:
             )
             for smiles in inputs
         ]
-        return result
+        if return_response:
+            return cast(List[Response], result)
+        return cast(List[List[MolportCompound | None]], result)
 
     def _find(
         self,
