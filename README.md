@@ -2,9 +2,11 @@
 # MolHarbour
 
 MolHarbour is a Python wrapper for the Molport REST API. It allows you to search for chemical compounds and retrieve information about them.
-Additionally, MolHarbour unifies the Molport API variables names and verifies the response data using [Pydantic](https://github.com/pydantic/pydantic) models.
+Additionally, MolHarbour unifies the Molport API variables names and verifies the response data using wonderful [Pydantic](https://github.com/pydantic/pydantic) models.
 
+This library is not affiliated with Molport in any way. Molport is a registered trademark of Molport SIA.
 
+The project was initiated as a part of my master's thesis and and is based on refactored scripts which I wrote to retrive commercial availablity of compounds in chembl database.
 
 ## Installation
 
@@ -17,7 +19,7 @@ pip install molharbor
 ### From source
 
 ```bash
-pip install git+https://github.com/asiomchen/pymolport
+pip install git+https://github.com/asiomchen/molharbor
 
 ```
 
@@ -40,8 +42,8 @@ molport.login(api_key="16072de6-d318-4324-a82c-08c7dfe64d5d")
 
 ### Compound search
 
-You can search for compounds using the `search` method. All the search types are supported( via SearchType enum).
-Additionally, you can specify the maximum number of results to return using the `max_results` parameter, and the minimum similarity threshold using the `similarity` parameter (is used only for similarity search).
+You can search for compounds using the `search` method. All the search types are supported( via `SearchType` enum).
+Additionally, you can specify the maximum number of results to return using the `max_results` parameter, and the minimum similarity threshold using the `similarity` parameter (it is used only for similarity search).
 
 
 #### Exact search
@@ -99,8 +101,10 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=
 
 #### Raw response manipulation
 
-MolHarbour design to simplify commonn tasks so `.find()` method returns a list of `MolportCompound` objects (which a dataclass object with `smiles`, `molport_id` and `link` field). However, you can access the raw response using the `return_raw` parameter. Returned `Response` object inherits from Pydantic `BaseModel` and contains all the fields from the Molport API response with type validation provided by Pydantic.
-All the fields have the same name as in Molport API docs, only the spaces replaced with underscores( eg Shipment Type -> Shipment_Type)
+MolHarbour design to simplify commonn tasks so `.find()` method returns a list of `MolportCompound` objects (which itself is a dataclass object with `smiles`, `molport_id` and `link` field). 
+
+However, you can access the raw response using the `return_response` parameter. Returned `Response` object inherits from Pydantic `BaseModel` and contains all the fields from the Molport API response with type validation provided by Pydantic.
+All the fields have the same name as in Molport API docs, only lowercase and the spaces are replaced with underscores( e.g. Shipment Type -> shipment_type)
 
 ```python
 from molharbor.checker import SearchType
@@ -115,3 +119,7 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=
 
 [Response(result=Result(status=1, message='Substructure search completed!'), data=Data(molecules=[Molecule(id=45........
 ```
+
+### Supliers search
+
+TBE
