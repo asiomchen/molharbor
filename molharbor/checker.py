@@ -16,8 +16,6 @@ class Molport:
         self._api_key = None
         self._username = None
         self._password = None
-        # i don't know if this is a good idea, but credentials from the docs are here and working
-        self.login(username="john.spade", password="fasdga34a3")
 
     def __repr__(self) -> str:
         return type(self).__name__ + "()"
@@ -29,8 +27,8 @@ class Molport:
         elif self.username and self.password:
             return {"User Name": self.username, "Authentication Code": self.password}
         else:
-            raise ValueError(
-                "No credentials provided are set, please set api_key or username and password with login()"
+            raise LoginError(
+                "No credentials are provided. Please login with username and password or api_key using .login()"
             )
 
     @property
@@ -152,7 +150,10 @@ class Molport:
         try:
             response = Response(**similarity_request.json())
             if response.result.status != ResultStatus.SUCCESS.value:
-                logging.error(response.result.message)
+                msg = response.result.message
+                if "Username or password is incorrect!" in msg:
+                    raise LoginError("Credentials are incorrect, please login again")
+                logging.error(msg)
                 return [None]
         except ValidationError as e:
             logging.error(e)
