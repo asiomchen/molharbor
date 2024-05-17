@@ -3,7 +3,7 @@ import pandas as pd
 import httpx
 from dataclasses import dataclass, field
 import logging
-from typing import List, Dict, Optional, Union, Iterable, cast
+from typing import List, Dict, Optional, Union, Iterable
 from molharbor.data import Response, ResponseSupplier
 from molharbor.exceptions import LoginError, UnknownSearchTypeException
 from molharbor.enums import SearchType, ResultStatus
@@ -116,9 +116,7 @@ class Molport:
             )
             for smiles in inputs
         ]
-        if return_response:
-            return cast(List[Response], result)
-        return cast(List[List[MolportCompound | None]], result)
+        return result
 
     def _find(
         self,
