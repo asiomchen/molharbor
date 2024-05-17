@@ -122,4 +122,107 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=
 
 ### Supliers search
 
-TBE
+Having a Molport ID, you can search for suppliers using the `get_suppliers` method. Similar too `find()` method, you could either recieve a raw pydantic response with all the fields having the same name as in Molport API docs, only lowercase and the spaces are replaced with underscores( e.g. Shipment Type -> shipment_type) or processed dataframe with most important fields
+
+#### Processed dataframe
+
+
+
+```python
+df = molport.get_suppliers("Molport-001-794-639")
+df[["supplier_name", "supplier_type", "amount", "measure", 
+"price", "currency", "delivery_days", 
+"stock", "stock_measure", "last_update_date_exact"]].head()
+```
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>supplier_name</th>
+      <th>supplier_type</th>
+      <th>amount</th>
+      <th>measure</th>
+      <th>price</th>
+      <th>currency</th>
+      <th>delivery_days</th>
+      <th>stock</th>
+      <th>stock_measure</th>
+      <th>last_update_date_exact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BIONET - Key Organics Ltd.</td>
+      <td>screening_block_suppliers</td>
+      <td>1.0</td>
+      <td>mg</td>
+      <td>45.0</td>
+      <td>USD</td>
+      <td>4</td>
+      <td>1187.6</td>
+      <td>mg</td>
+      <td>May 17, 2024</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BIONET - Key Organics Ltd.</td>
+      <td>screening_block_suppliers</td>
+      <td>5.0</td>
+      <td>mg</td>
+      <td>53.0</td>
+      <td>USD</td>
+      <td>4</td>
+      <td>1187.6</td>
+      <td>mg</td>
+      <td>May 17, 2024</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BIONET - Key Organics Ltd.</td>
+      <td>screening_block_suppliers</td>
+      <td>10.0</td>
+      <td>mg</td>
+      <td>64.0</td>
+      <td>USD</td>
+      <td>4</td>
+      <td>1187.6</td>
+      <td>mg</td>
+      <td>May 17, 2024</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BIONET - Key Organics Ltd.</td>
+      <td>screening_block_suppliers</td>
+      <td>1.0</td>
+      <td>mg</td>
+      <td>45.0</td>
+      <td>USD</td>
+      <td>4</td>
+      <td>1187.6</td>
+      <td>mg</td>
+      <td>May 17, 2024</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BIONET - Key Organics Ltd.</td>
+      <td>screening_block_suppliers</td>
+      <td>2.0</td>
+      <td>mg</td>
+      <td>47.0</td>
+      <td>USD</td>
+      <td>4</td>
+      <td>1187.6</td>
+      <td>mg</td>
+      <td>May 17, 2024</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Raw response
+
+```python
+molport.get_suppliers("Molport-000-871-563", return_response=True)
+
+ResponseSupplier(result=Result(status=1, message='Molecule found!'), data=DataSupplier(molecule=Molecule2(id=871563, molport_id='Molport-000-871-563', smiles='OC(=O)c1ccccc1', .....
+```
