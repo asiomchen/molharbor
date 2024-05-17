@@ -1,8 +1,12 @@
+import pandas as pd
+from pydantic import ValidationError
 import pytest
 from pytest import MonkeyPatch
-from molharbor import Molport, SearchType, UnknownSearchTypeException
+from molharbor import Molport, SearchType, UnknownSearchTypeException, ResultStatus
+from molharbor.data import ResponseSupplier
 from molharbor.exceptions import LoginError
-from .mock import MockResponse
+from .mock import MockResponse, MockResponseSupplier
+import json
 
 
 @pytest.fixture
@@ -10,6 +14,13 @@ def molport():
     molport = Molport()
     molport.login(username="john.spade", password="fasdga34a3")
     return molport
+
+
+@pytest.fixture
+def supplier_response():
+    with open("example_resp/suppliers.json") as f:
+        data = json.load(f)
+    return ResponseSupplier(**data)
 
 
 @pytest.mark.parametrize(
@@ -134,3 +145,72 @@ def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
     similarity = 0.9
     result = molport.find(smiles, search_type, max_results, similarity)
     assert result == []
+
+
+@pytest.mark.parametrize(
+    "code, msg",
+    [
+        (400, "Invalid response"),
+        (401, "Unauthorized"),
+        (403, "Forbidden"),
+        (404, "Not found"),
+    ],
+)
+def test_get_suppliers_unsuccessful_response(
+    molport: Molport, monkeypatch: MonkeyPatch, code, msg
+):
+    monkeypatch.setattr(
+        "httpx.Client.get",
+        lambda *args, **kwargs: MockResponse(code, json_data={}, text=msg),
+    )
+    with pytest.raises(ValueError) as exc:
+        molport.get_suppliers("C1=CC=CC=C1")
+    assert msg in str(exc.value)
+
+
+def test_get_suppliers_bad_format(molport: Molport, monkeypatch: MonkeyPatch):
+    monkeypatch.setattr(
+        "httpx.Client.get",
+        lambda *args, **kwargs: MockResponse(
+            200, json_data={"error": "Invalid response"}
+        ),
+    )
+    with pytest.raises(ValidationError):
+        molport.get_suppliers("C1=CC=CC=C1")
+
+
+@pytest.mark.parametrize(
+    "status",
+    [0, 1, 2, 3, 4],
+)
+def test_bad_result_status(molport: Molport, status):
+    response = MockResponseSupplier(status=status)
+    if response.result.status != ResultStatus.SUCCESS.value:
+        with pytest.raises(ValueError) as exc:
+            molport.extract_suppliers(response)
+        assert str(exc.value) == response.result.message, "Error message is incorrect"
+
+
+def test_extract_suppliers(supplier_response, molport: Molport):
+    suppliers = molport.extract_suppliers(supplier_response)
+    assert isinstance(suppliers, pd.DataFrame)
+    for col in suppliers.columns:
+        assert col in [
+            "supplier_name",
+            "supplier_type",
+            "amount",
+            "measure",
+            "measure_id",
+            "price",
+            "currency",
+            "currency_id",
+            "delivery_days",
+            "catalog_id",
+            "catalog_number",
+            "stock",
+            "stock_measure",
+            "stock_measure_id",
+            "purity",
+            "last_update_date",
+            "last_update_date_exact",
+        ], f"Column {col} is not in the DataFrame"

@@ -134,6 +134,18 @@ class Molport:
     def get_suppliers(
         self, molport_id: str, return_response: bool = False
     ) -> Union[pd.DataFrame, ResponseSupplier]:
+        """Get suppliers for a given Molport ID
+
+        Args:
+            molport_id (str): Molport ID of the compound
+            return_response (bool, optional): If True, returns the response object. Otherwise parses the response and returns a DataFrame. Defaults to False.
+
+        Raises:
+            ValueError: If the response status is not 200
+
+        Returns:
+            Union[pd.DataFrame, ResponseSupplier]: DataFrame with supplier information or Response object
+        """
         credentials = self.credentials
         url = "https://api.molport.com/api/molecule/load?molecule={}"
         if "API Key" in credentials:
@@ -153,6 +165,17 @@ class Molport:
             return self.extract_suppliers(data)
 
     def extract_suppliers(self, response: ResponseSupplier) -> pd.DataFrame:
+        """Extract suppliers from the response data
+
+        Args:
+            response (ResponseSupplier): Response data from the API
+
+        Raises:
+            ValueError: If the response status is not SUCCESS
+
+        Returns:
+            pd.DataFrame: DataFrame with supplier information
+        """
         if response.result.status != ResultStatus.SUCCESS.value:
             raise ValueError(response.result.message)
         types = [
