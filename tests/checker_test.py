@@ -1,6 +1,8 @@
 import pytest
+from pytest import MonkeyPatch
 from molharbor import Molport, SearchType, UnknownSearchTypeException
 from molharbor.exceptions import LoginError
+from .mock import MockResponse
 
 
 @pytest.fixture
@@ -113,6 +115,32 @@ def test_find_invalid_search_type(molport, search_type):
     ],
 )
 def test_find_invalid_smiles(molport, smiles):
+    search_type = SearchType.EXACT
+    max_results = 1000
+    similarity = 0.9
+    result = molport.find(smiles, search_type, max_results, similarity)
+    assert result == [[None]]
+
+
+def test_invalid_response(molport, monkeypatch: MonkeyPatch):
+    def mock_response(*args, **kwargs):
+        return {"error": "Invalid response"}
+
+    monkeypatch.setattr("httpx.Response.json", mock_response)
+    smiles = "C1=CC=CC=C1"
+    search_type = SearchType.EXACT
+    max_results = 1000
+    similarity = 0.9
+    result = molport.find(smiles, search_type, max_results, similarity)
+    assert result == [[None]]
+
+
+def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
+    monkeypatch.setattr(
+        "httpx.Client.post",
+        lambda *args, **kwargs: MockResponse(400, {"error": "Invalid response"}),
+    )
+    smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
