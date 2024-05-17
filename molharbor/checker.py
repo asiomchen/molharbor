@@ -11,6 +11,8 @@ from pydantic import ValidationError
 
 
 class Molport:
+    __slots__ = ["client", "_api_key", "_username", "_password"]
+
     def __init__(self):
         self.client = httpx.Client()
         self._api_key = None
@@ -71,9 +73,12 @@ class Molport:
             raise LoginError("Please provide either username and password or api_key")
         elif api_key:
             self._api_key = api_key
+            self._username = None
+            self._password = None
         elif username and password:
             self._username = username
             self._password = password
+            self._api_key = None
         else:
             raise LoginError(
                 "Please provide either username and password or api_key to login"
@@ -128,7 +133,7 @@ class Molport:
         return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
     def get_compound_suppliers(
-        self, molport_id: str, return_response: bool = True
+        self, molport_id: str, return_response: bool = False
     ) -> Union[pd.DataFrame, ResponseSupplier]:
         credentials = self.credentials
         url = "https://api.molport.com/api/molecule/load?molecule={}"
@@ -143,7 +148,30 @@ class Molport:
         if return_response:
             return ResponseSupplier(**response.json())
         else:
-            return None
+            return self.extract_suppliers(ResponseSupplier(**response.json()))
+
+    def extract_suppliers(self, response: ResponseSupplier) -> pd.DataFrame:
+        types = [
+            "screening_block_suppliers",
+            "building_block_suppliers",
+            "virtual_suppliers",
+        ]
+        records = []
+        for supp_type in types:
+            if hasattr(response.data.molecule.catalogues, supp_type):
+                for supp in response.data.molecule.catalogues.screening_block_suppliers:
+                    for catalog in supp.catalogues:
+                        data = catalog.model_dump()
+                        packings = data.pop("available_packings")
+                        name = {
+                            "supplier_name": supp.supplier_name,
+                            "supplier_type": supp_type,
+                        }
+                        for packing in packings:
+                            record = {**name, **packing, **data}
+                            records.append(record)
+        df = pd.DataFrame(records)
+        return df
 
 
 @dataclass
