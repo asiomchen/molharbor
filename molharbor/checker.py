@@ -123,7 +123,6 @@ class Molport:
                 return []
         except ValidationError as e:
             logging.error(e)
-            print(e)
             return []
         if return_response:
             return response
@@ -132,7 +131,7 @@ class Molport:
             return []
         return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
-    def get_compound_suppliers(
+    def get_suppliers(
         self, molport_id: str, return_response: bool = False
     ) -> Union[pd.DataFrame, ResponseSupplier]:
         credentials = self.credentials
@@ -145,12 +144,17 @@ class Molport:
             url = url.format(molport_id, self.username, self.password)
 
         response = self.client.get(url)
+        if response.status_code != 200:
+            raise ValueError(f"Error code: {response.status_code}\n{response.text}")
+        data = ResponseSupplier(**response.json())
         if return_response:
-            return ResponseSupplier(**response.json())
+            return data
         else:
-            return self.extract_suppliers(ResponseSupplier(**response.json()))
+            return self.extract_suppliers(data)
 
     def extract_suppliers(self, response: ResponseSupplier) -> pd.DataFrame:
+        if response.result.status != ResultStatus.SUCCESS.value:
+            raise ValueError(response.result.message)
         types = [
             "screening_block_suppliers",
             "building_block_suppliers",
