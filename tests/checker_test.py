@@ -1,5 +1,6 @@
 import pytest
 from molharbor import Molport, SearchType, UnknownSearchTypeException
+from molharbor.exceptions import LoginError
 
 
 @pytest.fixture
@@ -7,6 +8,57 @@ def molport():
     molport = Molport()
     molport.login(username="john.spade", password="fasdga34a3")
     return molport
+
+
+@pytest.mark.parametrize(
+    "username, password",
+    [
+        ("admin", "admin"),
+        ("unknown user", "fasdga34a3"),
+        (";lkjhgfdg", "tyguhiujokplp;"),
+    ],
+)
+def test_invalid_username_password(username, password):
+    molport = Molport()
+    molport.login(username=username, password=password)
+    with pytest.raises(LoginError):
+        molport.find("C1=CC=CC=C1", SearchType.EXACT, 1000, 0.9)
+
+
+@pytest.mark.parametrize(
+    "api_key",
+    [
+        "da39654c-145d-11ef-a3b0-00155d8905e7",
+        "e0f2970a-145d-11ef-a3b0-00155d8905e7",
+        "e7a0c856-145d-11ef-a3b0-00155d8905e7",
+    ],
+)
+def test_invalid_api_key(api_key):
+    molport = Molport()
+    molport.login(api_key=api_key)
+    with pytest.raises(LoginError):
+        molport.find("C1=CC=CC=C1", SearchType.EXACT, 1000, 0.9)
+
+
+def test_user_and_api_key(molport):
+    with pytest.raises(LoginError):
+        molport.login(
+            username="john.spade",
+            password="fasdga34a3",
+            api_key="da39654c-145d-11ef-a3b0-00155d8905e7",
+        )
+
+
+def test_no_login(molport):
+    molport = Molport()
+    with pytest.raises(LoginError):
+        molport.find("C1=CC=CC=C1", SearchType.EXACT, 1000, 0.9)
+
+
+def test_user_no_password(molport):
+    molport = Molport()
+    with pytest.raises(LoginError):
+        molport.login(username="john.spade")
 
 
 def test_find_single_smiles(molport):
