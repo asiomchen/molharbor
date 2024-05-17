@@ -1,4 +1,12 @@
 class MockResponse:
+    """Mocking the response object from `httpx` library.
+
+    Args:
+        status_code (int): status code of the response
+        json_data (dict): json data of the response would be returned by .json() method
+        text (str, optional): text of the response. Defaults to "".
+    """
+
     def __init__(self, status_code: int, json_data: dict, text: str = ""):
         self.status_code = status_code
         self.json_data = json_data
@@ -9,6 +17,12 @@ class MockResponse:
 
 
 class MockResponseSupplier:
+    """Mocking the ResponseSupplier object from molharbor.data module.
+
+    Args:
+        status (int): status of the response available in as `.result.status` attribute
+    """
+
     def __init__(self, status: int):
         self.result = MockResult(status)
 

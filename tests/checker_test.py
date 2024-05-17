@@ -9,6 +9,9 @@ from .mock import MockResponse, MockResponseSupplier
 import json
 
 
+SUP_SEARCH_SUCCESS = "tests/data/suppliers_search.json"
+
+
 @pytest.fixture
 def molport():
     molport = Molport()
@@ -18,7 +21,7 @@ def molport():
 
 @pytest.fixture
 def supplier_response():
-    with open("example_resp/suppliers.json") as f:
+    with open(SUP_SEARCH_SUCCESS, "r") as f:
         data = json.load(f)
     return ResponseSupplier(**data)
 
@@ -179,7 +182,15 @@ def test_get_suppliers_bad_format(molport: Molport, monkeypatch: MonkeyPatch):
         molport.get_suppliers("C1=CC=CC=C1")
 
 
-def test_get_suppliers_raw_response(molport: Molport):
+def test_get_suppliers_raw_response(
+    molport: Molport, supplier_response: ResponseSupplier, monkeypatch: MonkeyPatch
+):
+    monkeypatch.setattr(
+        "httpx.Client.get",
+        lambda *args, **kwargs: MockResponse(
+            200, json_data=supplier_response.model_dump(by_alias=True)
+        ),
+    )
     response = molport.get_suppliers("Molport-000-871-563", return_response=True)
     assert isinstance(response, ResponseSupplier)
 
