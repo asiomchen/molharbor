@@ -179,6 +179,11 @@ def test_get_suppliers_bad_format(molport: Molport, monkeypatch: MonkeyPatch):
         molport.get_suppliers("C1=CC=CC=C1")
 
 
+def test_get_suppliers_raw_response(molport: Molport):
+    response = molport.get_suppliers("Molport-000-871-563", return_response=True)
+    assert isinstance(response, ResponseSupplier)
+
+
 @pytest.mark.parametrize(
     "status",
     [0, 1, 2, 3, 4],

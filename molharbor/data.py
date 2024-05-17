@@ -98,7 +98,7 @@ class Molecule2(BaseModel):
 
 
 class DataSupplier(BaseModel):
-    molecule: Molecule2 = Field(alias="Molecule")
+    molecule: Molecule2 = Field(None, alias="Molecule")
     version: str = Field(alias="Version")
 
 
