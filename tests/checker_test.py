@@ -72,19 +72,7 @@ def test_find_single_smiles(molport):
     result = molport.find(smiles, search_type, max_results, similarity)
 
     assert isinstance(result, list)
-    assert len(result) == 1
-
-
-def test_find_multiple_smiles(molport):
-    smiles = ["C1=CC=CC=C1", "C1=CC=CC=C2C(=C1)C=CC=C2"]
-    search_type = SearchType.EXACT
-    max_results = 1000
-    similarity = 0.9
-
-    result = molport.find(smiles, search_type, max_results, similarity)
-
-    assert isinstance(result, list)
-    assert len(result) == len(smiles)
+    assert len(result) >= 8
 
 
 @pytest.mark.parametrize(
@@ -119,7 +107,7 @@ def test_find_invalid_smiles(molport, smiles):
     max_results = 1000
     similarity = 0.9
     result = molport.find(smiles, search_type, max_results, similarity)
-    assert result == [[None]]
+    assert result == []
 
 
 def test_invalid_response(molport, monkeypatch: MonkeyPatch):
@@ -132,7 +120,7 @@ def test_invalid_response(molport, monkeypatch: MonkeyPatch):
     max_results = 1000
     similarity = 0.9
     result = molport.find(smiles, search_type, max_results, similarity)
-    assert result == [[None]]
+    assert result == []
 
 
 def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
@@ -145,4 +133,4 @@ def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
     max_results = 1000
     similarity = 0.9
     result = molport.find(smiles, search_type, max_results, similarity)
-    assert result == [[None]]
+    assert result == []

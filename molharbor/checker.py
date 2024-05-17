@@ -3,7 +3,7 @@ import pandas as pd
 import httpx
 from dataclasses import dataclass, field
 import logging
-from typing import List, Dict, Optional, Union, Iterable
+from typing import List, Optional, Union
 from molharbor.data import Response, ResponseSupplier
 from molharbor.exceptions import LoginError, UnknownSearchTypeException
 from molharbor.enums import SearchType, ResultStatus
@@ -81,57 +81,18 @@ class Molport:
 
     def find(
         self,
-        smiles: Union[str, Iterable[str]],
+        smiles: str,
         search_type: Union[SearchType, int] = SearchType.EXACT,
         max_results: int = 1000,
-        similarity: Optional[float] = 0.9,
-        progress_bar: bool = False,
+        similarity: float = 0.9,
         return_response: bool = False,
-    ) -> List[List[MolportCompound] | Response]:
+    ) -> List[MolportCompound] | Response:
+        if not isinstance(smiles, str):
+            raise TypeError("SMILES must be a string")
         try:
             search_type = SearchType(search_type)
         except ValueError:
             raise UnknownSearchTypeException(search_type)
-
-        if isinstance(smiles, str):
-            smiles = [smiles]
-        elif not isinstance(smiles, Iterable):
-            raise TypeError(f"Expected str or Iterable[str], got {type(smiles)}")
-        if progress_bar and len(smiles) > 1:
-            # if jupyter notebook is used, use tqdm.notebook
-            if "IPython" in globals():
-                from tqdm.notebook import tqdm
-            else:
-                from tqdm import tqdm
-            inputs = tqdm(smiles)
-        else:
-            inputs = smiles
-        result = [
-            self._find(
-                smiles,
-                SearchType(search_type),
-                max_results,
-                similarity,
-                return_response,
-            )
-            for smiles in inputs
-        ]
-        return result
-
-    def _find(
-        self,
-        smiles: str,
-        search_type: SearchType,
-        max_results: int,
-        similarity: Optional[float] = 0.9,
-        return_response: bool = False,
-    ) -> List[MolportCompound | Response | None]:
-        """
-        Finds the Molport ID of a compound. If compound have molport ID exists,
-         assupms that it is commercial.
-        :param smiles: canonical smiles string
-        :return:
-        """
         payload = {
             "Structure": smiles,
             "Search Type": search_type.value,
@@ -146,7 +107,7 @@ class Molport:
         )
         if similarity_request.status_code != 200:
             logging.error(f"Error code: {similarity_request.status_code}")
-            return [None]
+            return []
         try:
             response = Response(**similarity_request.json())
             if response.result.status != ResultStatus.SUCCESS.value:
@@ -154,21 +115,21 @@ class Molport:
                 if "Username or password is incorrect!" in msg:
                     raise LoginError("Credentials are incorrect, please login again")
                 logging.error(msg)
-                return [None]
+                return []
         except ValidationError as e:
             logging.error(e)
             print(e)
-            return [None]
+            return []
         if return_response:
             return response
         mols = response.data.molecules
         if not mols:
-            return [None]
+            return []
         return [MolportCompound(mol.smiles, mol.molport_id) for mol in mols]
 
     def get_compound_suppliers(
         self, molport_id: str, return_response: bool = True
-    ) -> Union[pd.DataFrame, Dict]:
+    ) -> Union[pd.DataFrame, ResponseSupplier]:
         credentials = self.credentials
         url = "https://api.molport.com/api/molecule/load?molecule={}"
         if "API Key" in credentials:
