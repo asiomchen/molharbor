@@ -2,7 +2,9 @@ import pandas as pd
 from pydantic import ValidationError
 import pytest
 from pytest import MonkeyPatch
-from molharbor import Molport, SearchType, UnknownSearchTypeException, ResultStatus
+from molharbor import Molport
+from molharbor.enums import SearchType, ResultStatus
+from molharbor.exceptions import UnknownSearchTypeException
 from molharbor.data import ResponseSupplier
 from molharbor.exceptions import LoginError
 from .mock import MockResponse, MockResponseSupplier

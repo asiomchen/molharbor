@@ -7,6 +7,7 @@ from typing import List, Optional, Union
 from molharbor.data import Response, ResponseSupplier
 from molharbor.exceptions import LoginError, UnknownSearchTypeException
 from molharbor.enums import SearchType, ResultStatus
+from molharbor.utils import compound_search_payload
 from pydantic import ValidationError
 
 
@@ -98,15 +99,9 @@ class Molport:
             search_type = SearchType(search_type)
         except ValueError:
             raise UnknownSearchTypeException(search_type)
-        payload = {
-            "Structure": smiles,
-            "Search Type": search_type.value,
-            "Maximum Search Time": 60000,
-            "Maximum Result Count": max_results,
-            "Chemical Similarity Index": similarity,
-        }
-        creds = self.credentials
-        payload.update(creds)
+        payload = compound_search_payload(
+            smiles, search_type, max_results, similarity, self.credentials
+        )
         similarity_request = self.client.post(
             "https://api.molport.com/api/chemical-search/search", json=payload
         )
