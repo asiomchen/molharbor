@@ -127,7 +127,7 @@ def test_find_single_smiles(
     )
 
     assert isinstance(result, list)
-    assert len(result) >= 8
+    assert len(result) == 8
 
 
 @pytest.mark.parametrize(
