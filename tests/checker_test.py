@@ -2,6 +2,7 @@ import pandas as pd
 from pydantic import ValidationError
 import pytest
 from pytest import MonkeyPatch
+from pytest_lazyfixture import lazy_fixture
 from molharbor import Molport
 from molharbor.enums import SearchType, ResultStatus
 from molharbor.exceptions import UnknownSearchTypeException
@@ -40,6 +41,32 @@ def search_response():
     with open(SEARCH_10_EXACT_SUCCESS, "r") as f:
         data = json.load(f)
     return Response(**data)
+
+
+def test_molport_repr():
+    molport = Molport()
+    assert repr(molport) == "Molport()"
+
+
+def test_api_setter(molport):
+    molport.api_key = "880d8343-8ui2-418c-9g7a-68b4e2e78c8b"
+    assert molport.api_key == "880d8343-8ui2-418c-9g7a-68b4e2e78c8b"
+    assert molport._api_key == "880d8343-8ui2-418c-9g7a-68b4e2e78c8b"
+    assert molport.username is None
+    assert molport.password is None
+
+
+def test_username_setter(molport):
+    molport.username = "john.spade"
+    assert molport.username == "john.spade"
+    assert molport._username == "john.spade"
+
+
+def test_password_setter(molport):
+    molport.password = "fasdga34a3"
+    assert molport.password == "fasdga34a3"
+    assert molport._password == "fasdga34a3"
+    assert molport.api_key is None
 
 
 @pytest.mark.parametrize(
@@ -130,6 +157,33 @@ def test_find_single_smiles(
     assert len(result) == 8
 
 
+def test_find_single_smiles_response(
+    molport: Molport, search_response: Response, monkeypatch: MonkeyPatch
+):
+    smiles = "C1=CC=CC=C1"
+    search_type = SearchType.EXACT
+    max_results = 10
+    similarity = 0.9
+    monkeypatch.setattr(
+        "httpx.Client.post",
+        lambda *args, **kwargs: MockResponse(
+            200, search_response.model_dump(by_alias=True)
+        ),
+    )
+
+    result = molport.find(
+        smiles,
+        search_type=search_type,
+        max_results=max_results,
+        similarity=similarity,
+        return_response=True,
+    )
+
+    assert isinstance(result, Response), "Response is not an instance of Response"
+    assert result.result.status == ResultStatus.SUCCESS.value
+    assert result.result.message == "Exact search completed!"
+
+
 @pytest.mark.parametrize(
     "search_type",
     [
@@ -170,6 +224,23 @@ def test_find_invalid_smiles(molport, smiles):
         smiles, search_type=search_type, max_results=max_results, similarity=similarity
     )
     assert result == []
+
+
+@pytest.mark.parametrize(
+    "smiles",
+    [
+        1000,
+        ["C1=CC=CC=C1"],
+    ],
+)
+def test_find_smiles_not_string(molport, smiles):
+    with pytest.raises(TypeError):
+        molport.find(
+            smiles=smiles,
+            search_type=SearchType.EXACT,
+            max_results=1000,
+            similarity=0.9,
+        )
 
 
 def test_invalid_response(molport, monkeypatch: MonkeyPatch):
@@ -259,8 +330,12 @@ def test_bad_result_status(molport: Molport, status):
         assert str(exc.value) == response.result.message, "Error message is incorrect"
 
 
-def test_extract_suppliers(supplier_response, molport: Molport):
-    suppliers = molport.extract_suppliers(supplier_response)
+@pytest.mark.parametrize(
+    "molport_obj",
+    [lazy_fixture("molport"), lazy_fixture("molport_api_key")],
+)
+def test_extract_suppliers(supplier_response, molport_obj: Molport):
+    suppliers = molport_obj.extract_suppliers(supplier_response)
     assert isinstance(suppliers, pd.DataFrame)
     for col in suppliers.columns:
         assert col in [
