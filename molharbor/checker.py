@@ -87,8 +87,9 @@ class Molport:
 
     def find(
         self,
-        *,
+        /,
         smiles: str,
+        *,
         search_type: Union[SearchType, int] = SearchType.EXACT_FRAGMENT,
         max_search_time: Optional[int] = None,
         max_results: int = 10000,

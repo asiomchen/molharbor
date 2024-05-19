@@ -40,7 +40,12 @@ def test_invalid_username_password(username, password):
     molport = Molport()
     molport.login(username=username, password=password)
     with pytest.raises(LoginError):
-        molport.find("C1=CC=CC=C1", SearchType.EXACT, 1000, 0.9)
+        molport.find(
+            "C1=CC=CC=C1",
+            search_type=SearchType.EXACT,
+            max_results=1000,
+            similarity=0.9,
+        )
 
 
 @pytest.mark.parametrize(
@@ -55,7 +60,12 @@ def test_invalid_api_key(api_key):
     molport = Molport()
     molport.login(api_key=api_key)
     with pytest.raises(LoginError):
-        molport.find("C1=CC=CC=C1", SearchType.EXACT, 1000, 0.9)
+        molport.find(
+            "C1=CC=CC=C1",
+            search_type=SearchType.EXACT,
+            max_results=1000,
+            similarity=0.9,
+        )
 
 
 def test_user_and_api_key(molport):
@@ -70,7 +80,12 @@ def test_user_and_api_key(molport):
 def test_no_login(molport):
     molport = Molport()
     with pytest.raises(LoginError):
-        molport.find("C1=CC=CC=C1", SearchType.EXACT, 1000, 0.9)
+        molport.find(
+            "C1=CC=CC=C1",
+            search_type=SearchType.EXACT,
+            max_results=1000,
+            similarity=0.9,
+        )
 
 
 def test_user_no_password(molport):
@@ -85,7 +100,9 @@ def test_find_single_smiles(molport):
     max_results = 1000
     similarity = 0.9
 
-    result = molport.find(smiles, search_type, max_results, similarity)
+    result = molport.find(
+        smiles, search_type=search_type, max_results=max_results, similarity=similarity
+    )
 
     assert isinstance(result, list)
     assert len(result) >= 8
@@ -108,7 +125,12 @@ def test_find_invalid_search_type(molport, search_type):
     similarity = 0.9
 
     with pytest.raises(UnknownSearchTypeException):
-        molport.find(smiles, search_type, max_results, similarity)
+        molport.find(
+            smiles=smiles,
+            max_results=max_results,
+            similarity=similarity,
+            search_type=search_type,
+        )
 
 
 @pytest.mark.parametrize(
@@ -122,7 +144,9 @@ def test_find_invalid_smiles(molport, smiles):
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(smiles, search_type, max_results, similarity)
+    result = molport.find(
+        smiles, search_type=search_type, max_results=max_results, similarity=similarity
+    )
     assert result == []
 
 
@@ -135,7 +159,9 @@ def test_invalid_response(molport, monkeypatch: MonkeyPatch):
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(smiles, search_type, max_results, similarity)
+    result = molport.find(
+        smiles, search_type=search_type, max_results=max_results, similarity=similarity
+    )
     assert result == []
 
 
@@ -148,7 +174,9 @@ def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(smiles, search_type, max_results, similarity)
+    result = molport.find(
+        smiles, search_type=search_type, max_results=max_results, similarity=similarity
+    )
     assert result == []
 
 
