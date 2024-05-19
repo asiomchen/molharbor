@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 import logging
 from typing import List, Optional, Union
 from molharbor.data import Response, ResponseSupplier
-from molharbor.exceptions import LoginError, UnknownSearchTypeException
+from molharbor.exceptions import LoginError
 from molharbor.enums import SearchType, ResultStatus
 from molharbor.utils import compound_search_payload
 from pydantic import ValidationError
@@ -26,9 +26,9 @@ class Molport:
     @property
     def credentials(self):
         if self.api_key:
-            return {"API Key": self.api_key}
+            return {"api_key": self.api_key}
         elif self.username and self.password:
-            return {"User Name": self.username, "Authentication Code": self.password}
+            return {"username": self.username, "password": self.password}
         else:
             raise LoginError(
                 "No credentials are provided. Please login with username and password or api_key using .login()"
@@ -87,20 +87,41 @@ class Molport:
 
     def find(
         self,
+        *,
         smiles: str,
-        search_type: Union[SearchType, int] = SearchType.EXACT,
-        max_results: int = 1000,
+        search_type: Union[SearchType, int] = SearchType.EXACT_FRAGMENT,
+        max_search_time: Optional[int] = None,
+        max_results: int = 10000,
         similarity: float = 0.9,
         return_response: bool = False,
     ) -> List[MolportCompound] | Response:
+        """Find compounds by SMILES string in Molport database, have the same default values as the API
+
+        Args:
+            smiles (str): SMILES string of the compound
+            search_type (Union[SearchType, int], optional): _description_. Defaults to SearchType.EXACT_FRAGMENT.
+            max_search_time (Optional[int], optional): time in miliseconds - maximum search time to be spent on chemical search
+            max_results (int, optional): maximum result count which must be returned as result; currently maximum allowed value is 10000. Defaults to 10000.
+            similarity (float, optional): if similarity search is made, it is possible to provide similarity index in range 0 - 1. Defaults to 0.9.
+            return_response (bool, optional): If True, returns the response object. Otherwise parses the response and returns a list of `MolportCompound` objects. Defaults to False.
+
+        Raises:
+            TypeError: If SMILES is not a string
+            LoginError: If credentials are incorrect
+            ValidationError: If the response or payload is not valid
+
+        Returns:
+            List[MolportCompound] | Response: List of MolportCompound objects or Response object
+        """
         if not isinstance(smiles, str):
             raise TypeError("SMILES must be a string")
-        try:
-            search_type = SearchType(search_type)
-        except ValueError:
-            raise UnknownSearchTypeException(search_type)
         payload = compound_search_payload(
-            smiles, search_type, max_results, similarity, self.credentials
+            smiles=smiles,
+            search_type=search_type,
+            maximum_search_time=max_search_time,
+            max_results=max_results,
+            similarity=similarity,
+            credentials=self.credentials,
         )
         similarity_request = self.client.post(
             "https://api.molport.com/api/chemical-search/search", json=payload

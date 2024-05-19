@@ -1,6 +1,8 @@
 from typing import List, Optional
-from pydantic import BaseModel, Field
+from pydantic_core import PydanticCustomError
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 import numpy as np
+from molharbor.enums import SearchType
 
 
 class Molecule(BaseModel):
@@ -104,3 +106,38 @@ class DataSupplier(BaseModel):
 
 class ResponseSupplier(Response):
     data: DataSupplier = Field(alias="Data")
+
+
+class SearchPayload(BaseModel):
+    smiles: str = Field(..., serialization_alias="Structure")
+    search_type: SearchType = Field(
+        SearchType.EXACT_FRAGMENT, serialization_alias="Search Type"
+    )
+    maximum_search_time: Optional[int] = Field(
+        None, serialization_alias="Maximum Search Time"
+    )
+    max_results: int = Field(10000, serialization_alias="Maximum Result Count")
+    similarity: float = Field(0.9, serialization_alias="Chemical Similarity Index")
+    api_key: Optional[str] = Field(None, serialization_alias="API Key")
+    username: Optional[str] = Field(None, serialization_alias="User Name")
+    password: Optional[str] = Field(None, serialization_alias="Authentication Code")
+    model_config = ConfigDict(use_enum_values=True)
+
+    @model_validator(mode="before")
+    def check_auth(cls, values: dict):
+        api_key, username, password = (
+            values.get("api_key"),
+            values.get("username"),
+            values.get("password"),
+        )
+        if api_key:
+            values.pop("username", None)
+            values.pop("password", None)
+            return values
+        elif not all((username, password)):
+            raise PydanticCustomError(
+                "Either username and password or api_key must be provided",
+                f"Wrong credintials combination: api_key={api_key}, username={username}, password={password}",
+            )
+        values.pop("api_key", None)
+        return values
