@@ -1,6 +1,8 @@
 import json
+import pytest
 from pathlib import Path
-from molharbor.data import Molecule, Response
+from pydantic import ValidationError
+from molharbor.data import Molecule, Response, SearchPayload
 
 example_mol = {
     "Id": 2266780,
@@ -42,3 +44,23 @@ def test_search_response():
     assert resp.data.molecules[0].verified_amount == 22475000.0
     assert resp.data.molecules[0].unverified_amount == 25000000.0
     assert resp.data.molecules[0].similarity_index == 1.0
+
+
+@pytest.mark.parametrize(
+    "credentials",
+    [
+        {"username": "john.spade", "password": "password", "api_key": "key"},
+        {"username": "john.spade"},
+        {"password": "password"},
+        {},
+    ],
+)
+def test_search_payload_invalid_credentials(credentials):
+    with pytest.raises(ValidationError):
+        SearchPayload(
+            smiles="CCO",
+            search_type="exact",
+            max_results=10,
+            similarity=0.8,
+            credentials=credentials,
+        )
