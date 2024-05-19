@@ -13,6 +13,7 @@ import json
 
 SEARCH_10_EXACT_SUCCESS = "tests/data/search_10_results_exact.json"
 SUP_SEARCH_SUCCESS = "tests/data/suppliers_search.json"
+BAD_SMILES_RESPONSE = "tests/data/bad_smiles_search.json"
 
 
 @pytest.fixture
@@ -39,6 +40,13 @@ def supplier_response():
 @pytest.fixture
 def search_response():
     with open(SEARCH_10_EXACT_SUCCESS, "r") as f:
+        data = json.load(f)
+    return Response(**data)
+
+
+@pytest.fixture
+def bad_smiles_response():
+    with open(BAD_SMILES_RESPONSE, "r") as f:
         data = json.load(f)
     return Response(**data)
 
@@ -216,10 +224,18 @@ def test_find_invalid_search_type(molport, search_type):
         "cCcccc123",
     ],
 )
-def test_find_invalid_smiles(molport, smiles):
+def test_find_invalid_smiles(
+    molport, smiles, bad_smiles_response: Response, monkeypatch: MonkeyPatch
+):
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
+    monkeypatch.setattr(
+        "httpx.Client.post",
+        lambda *args, **kwargs: MockResponse(
+            200, bad_smiles_response.model_dump(by_alias=True)
+        ),
+    )
     result = molport.find(
         smiles, search_type=search_type, max_results=max_results, similarity=similarity
     )

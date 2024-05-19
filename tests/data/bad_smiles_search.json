@@ -1,0 +1,10 @@
+{
+    "Result": {
+        "Status": 1,
+        "Message": "Exact search completed!"
+    },
+    "Data": {
+        "Molecules": [],
+        "Version": "v.1.0"
+    }
+}
