@@ -5,12 +5,12 @@ from pytest import MonkeyPatch
 from molharbor import Molport
 from molharbor.enums import SearchType, ResultStatus
 from molharbor.exceptions import UnknownSearchTypeException
-from molharbor.data import ResponseSupplier
+from molharbor.data import ResponseSupplier, Response
 from molharbor.exceptions import LoginError
 from .mock import MockResponse, MockResponseSupplier
 import json
 
-
+SEARCH_10_EXACT_SUCCESS = "tests/data/search_10_results_exact.json"
 SUP_SEARCH_SUCCESS = "tests/data/suppliers_search.json"
 
 
@@ -22,10 +22,24 @@ def molport():
 
 
 @pytest.fixture
+def molport_api_key():
+    molport = Molport()
+    molport.login(api_key="880d8343-8ui2-418c-9g7a-68b4e2e78c8b")
+    return molport
+
+
+@pytest.fixture
 def supplier_response():
     with open(SUP_SEARCH_SUCCESS, "r") as f:
         data = json.load(f)
     return ResponseSupplier(**data)
+
+
+@pytest.fixture
+def search_response():
+    with open(SEARCH_10_EXACT_SUCCESS, "r") as f:
+        data = json.load(f)
+    return Response(**data)
 
 
 @pytest.mark.parametrize(
@@ -94,11 +108,19 @@ def test_user_no_password(molport):
         molport.login(username="john.spade")
 
 
-def test_find_single_smiles(molport):
+def test_find_single_smiles(
+    molport: Molport, search_response: Response, monkeypatch: MonkeyPatch
+):
     smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
-    max_results = 1000
+    max_results = 10
     similarity = 0.9
+    monkeypatch.setattr(
+        "httpx.Client.post",
+        lambda *args, **kwargs: MockResponse(
+            200, search_response.model_dump(by_alias=True)
+        ),
+    )
 
     result = molport.find(
         smiles, search_type=search_type, max_results=max_results, similarity=similarity
