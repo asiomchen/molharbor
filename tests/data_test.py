@@ -14,7 +14,7 @@ example_mol = {
     "Similarity Index": 0.80487806,
 }
 
-EXAMPLE_PATH = Path("example_resp")
+EXAMPLE_PATH = Path("tests/data/")
 SUCCESSFUL_SEARCH_PATH = EXAMPLE_PATH / "molport_search.json"
 
 
