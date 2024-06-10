@@ -65,7 +65,9 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.EXACT)
 #### Similarity search
 
 ```python
-molport.find("O=C(O)c1ccccc1", search_type=SearchType.SIMILARITY, max_results=5)
+molport.find("O=C(O)c1ccccc1", 
+              search_type=SearchType.SIMILARITY, 
+              max_results=5)
 
 [[MolportCompound(smiles='OC(=O)c1ccccc1', molport_id='Molport-000-871-563', link='https://www.molport.com/shop/compound/Molport-000-871-563'),
   MolportCompound(smiles='[2H]c1c([2H])c([2H])c(c([2H])c1[2H])C(O)=O', molport_id='Molport-003-927-939', link='https://www.molport.com/shop/compound/Molport-003-927-939'),
@@ -79,7 +81,9 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.SIMILARITY, max_results=5)
 
 ```python
 
-molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUPERSTRUCTURE, max_results=5)
+molport.find("O=C(O)c1ccccc1", 
+              search_type=SearchType.SUPERSTRUCTURE, 
+              max_results=5)
 
 [[MolportCompound(smiles='CC=O', molport_id='Molport-001-783-184', link='https://www.molport.com/shop/compound/Molport-001-783-184'),
   MolportCompound(smiles='OCc1ccccc1', molport_id='Molport-001-783-216', link='https://www.molport.com/shop/compound/Molport-001-783-216'),
@@ -92,7 +96,9 @@ molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUPERSTRUCTURE, max_result
 #### Substructure search
 
 ```python
-molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=5)
+molport.find("O=C(O)c1ccccc1", 
+              search_type=SearchType.SUBSTRUCTURE, 
+              max_results=5)
 
 [[MolportCompound(smiles='OC(=O)c1ccc2[nH]c(S)nc2c1', molport_id='Molport-000-004-519', link='https://www.molport.com/shop/compound/Molport-000-004-519'),
   MolportCompound(smiles='OC(=O)c1cc(C#N)c(Cl)cc1Cl', molport_id='Molport-051-434-827', link='https://www.molport.com/shop/compound/Molport-051-434-827'),
@@ -111,14 +117,20 @@ All the fields have the same name as in Molport API docs, only lowercase and the
 
 ```python
 from molharbor import SearchType
-molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=1, return_response=False)
+molport.find("O=C(O)c1ccccc1", 
+              search_type=SearchType.SUBSTRUCTURE, 
+              max_results=1, 
+              return_response=False)
 
 [[MolportCompound(smiles='OC(=O)c1cc(C#N)c(Cl)cc1Cl', molport_id='Molport-051-434-827', link='https://www.molport.com/shop/compound/Molport-051-434-827')]]
 ```
 vs
 
 ```python
-molport.find("O=C(O)c1ccccc1", search_type=SearchType.SUBSTRUCTURE, max_results=1, return_response=True)
+molport.find("O=C(O)c1ccccc1", 
+              search_type=SearchType.SUBSTRUCTURE, 
+              max_results=1, 
+              return_response=True)
 
 [Response(result=Result(status=1, message='Substructure search completed!'), data=Data(molecules=[Molecule(id=45........
 ```
