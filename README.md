@@ -1,5 +1,8 @@
 
 # MolHarbour
+[![image](https://shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](#)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![codecov](https://codecov.io/gh/asiomchen/molharbor/graph/badge.svg?token=BPMQ6F3IV9)](https://codecov.io/gh/asiomchen/molharbor)
 
 MolHarbour is a unofficial Python wrapper for the Molport REST API. It allows you to search for chemical compounds and retrieve information about them.
 Additionally, MolHarbour unifies the Molport API variables names and verifies the response data using wonderful [Pydantic](https://github.com/pydantic/pydantic) models.
