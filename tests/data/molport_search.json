@@ -1,0 +1,20 @@
+{
+  "Result": {
+    "Status": 1,
+    "Message": "Similarity search completed!"
+  },
+  "Data": {
+    "Molecules": [
+      {
+        "Id": 1740297,
+        "MolPort Id": "Molport-001-740-297",
+        "SMILES": "O=C(OCc1ccccc1)c1ccccc1",
+        "Canonical SMILES": "O=C(OCc1ccccc1)c1ccccc1",
+        "Verified Amount": 22475000,
+        "Unverified Amount": 25000000,
+        "Similarity Index": 1.0
+      }
+    ],
+    "Version": "v.1.0"
+  }
+}
