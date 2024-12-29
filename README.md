@@ -254,3 +254,23 @@ molport.get_suppliers("Molport-000-871-563", return_response=True)
 
 ResponseSupplier(result=Result(status=1, message='Molecule found!'), data=DataSupplier(molecule=Molecule2(id=871563, molport_id='Molport-000-871-563', smiles='OC(=O)c1ccccc1', .....
 ```
+## Contributing
+
+Contributions are welcome!
+
+We use poetry for dependency management. To install the dependencies for development, run:
+
+```bash
+poetry install --with dev
+```
+
+
+Please make sure to update tests as appropriate.
+We use ruff for code formatting and linting. Please make sure to run it before opening a pull request.
+
+Additionally, pre-commit hooks are set up to run ruff before each commit. To install them, run:
+
+```bash
+pre-commit install
+```
+Thank you for your contributions!
