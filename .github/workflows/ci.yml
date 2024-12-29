@@ -1,29 +1,52 @@
-name: Workflow for Codecov
+name: pytest
+
 on: [push, pull_request]
+
 jobs:
-  run:
-    runs-on: ubuntu-latest
+  test:
+    name: Test on Python ${{ matrix.python-version }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
+      fail-fast: false
+      max-parallel: 5
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set up Python 3.9
+
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: ${{ matrix.python-version }}
+
       - name: Install poetry
         run: curl -sSL https://install.python-poetry.org | python3 -
+
       - name: Add Poetry to path
         run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
+        shell: bash
+
       - name: Install dependencies
         run: poetry install
+
       - name: Run tests and collect coverage
         run: poetry run pytest --color=yes --disable-pytest-warnings --cov=molharbor --cov-report=xml tests/
+
       - name: Upload coverage to Codecov
+        if: ${{ matrix.os == 'ubuntu-latest' }} && ${{ matrix.python-version == '3.9' }}
         uses: codecov/codecov-action@v4
         with:
           files: ./coverage.xml
           verbose: true
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
+
+    env:
+      PYTHONIOENCODING: utf-8
+      POETRY_VIRTUALENVS_CREATE: true
+      POETRY_VIRTUALENVS_IN_PROJECT: true
