@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "molharbor"
-version = "0.1.1"
+version = "0.1.2"
 description = " unofficial python wrapper for MolPort API"
 authors = ["Anton Siomchen <41703271+asiomchen@users.noreply.github.com>"]
 homepage = "https://github.com/asiomchen/molharbor"
