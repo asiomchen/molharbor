@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "molharbor"
-version = "0.1.0"
+version = "0.1.1"
 description = " unofficial python wrapper for MolPort API"
 authors = ["Anton Siomchen <41703271+asiomchen@users.noreply.github.com>"]
 license = "Apache-2.0"
@@ -15,7 +15,11 @@ classifiers = [  # Optional
   #   3 - Alpha
   #   4 - Beta
   #   5 - Production/Stable
-  "Development Status :: 4 - Beta",
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Utilities",
 
   # Specify the Python versions you support here. In particular, ensure
   # that you indicate you support Python 3. These classifiers are *not*
@@ -56,7 +60,9 @@ build-backend = "poetry.core.masonry.api"
 
 
 [project.urls]  # Optional
-"Homepage" = "https://github.com/asiomchen/molharbor"
+homepage = "https://github.com/asiomchen/molharbor"
+repository = "https://github.com/asiomchen/molharbor"
+issues = "https://github.com/asiomchen/molharbor/issues"
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
