@@ -37,28 +37,8 @@ jobs:
       - name: Run tests and collect coverage
         run: poetry run pytest --color=yes --disable-pytest-warnings --cov=molharbor --cov-report=xml tests/
 
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: ./coverage.xml
-
-    env:
-      PYTHONIOENCODING: utf-8
-      POETRY_VIRTUALENVS_CREATE: true
-      POETRY_VIRTUALENVS_IN_PROJECT: true
-
-  upload-coverage:
-    name: Upload Coverage to Codecov
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Download coverage artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: coverage-report
-
       - name: Upload coverage to Codecov
+        if: ${{ matrix.os == 'ubuntu-latest' }} && ${{ matrix.python-version == '3.9' }}
         uses: codecov/codecov-action@v4
         with:
           files: ./coverage.xml
@@ -68,3 +48,5 @@ jobs:
 
     env:
       PYTHONIOENCODING: utf-8
+      POETRY_VIRTUALENVS_CREATE: true
+      POETRY_VIRTUALENVS_IN_PROJECT: true
