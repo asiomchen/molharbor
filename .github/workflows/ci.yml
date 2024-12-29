@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
       fail-fast: false
 
     steps:
@@ -29,7 +29,9 @@ jobs:
 
       - name: Install poetry (Windows)
         if: runner.os == 'Windows'
-        run: (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+        run: |
+          (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+          echo "C:\Users\${env:USERNAME}\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
 
       - name: Add Poetry to path (Linux & macOS)
         if: runner.os != 'Windows'
@@ -38,7 +40,7 @@ jobs:
 
       - name: Add Poetry to path (Windows)
         if: runner.os == 'Windows'
-        run: echo "C:\Users\${env:USERNAME}\.poetry\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+        run: echo "C:\Users\${env:USERNAME}\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
         shell: pwsh
 
       - name: Install dependencies
