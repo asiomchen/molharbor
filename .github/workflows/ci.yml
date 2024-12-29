@@ -7,10 +7,9 @@ jobs:
     name: Test on Python ${{ matrix.python-version }} - ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 6
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.9', '3.10', '3.11', '3.12']
       fail-fast: false
 
     steps:
@@ -24,12 +23,23 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install poetry
+      - name: Install poetry (Linux & macOS)
+        if: runner.os != 'Windows'
         run: curl -sSL https://install.python-poetry.org | python3 -
 
-      - name: Add Poetry to path
+      - name: Install poetry (Windows)
+        if: runner.os == 'Windows'
+        run: (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+
+      - name: Add Poetry to path (Linux & macOS)
+        if: runner.os != 'Windows'
         run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
         shell: bash
+
+      - name: Add Poetry to path (Windows)
+        if: runner.os == 'Windows'
+        run: echo "C:\Users\${env:USERNAME}\.poetry\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+        shell: pwsh
 
       - name: Install dependencies
         run: poetry install
