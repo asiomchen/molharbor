@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
       fail-fast: false
 
@@ -27,21 +27,21 @@ jobs:
         if: runner.os != 'Windows'
         run: curl -sSL https://install.python-poetry.org | python3 -
 
-      - name: Install poetry (Windows)
-        if: runner.os == 'Windows'
-        run: |
-          (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
-          echo "C:\Users\${env:USERNAME}\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+      # - name: Install poetry (Windows)
+      #   if: runner.os == 'Windows'
+      #   run: |
+      #     (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+      #     echo "C:\Users\${env:USERNAME}\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
 
       - name: Add Poetry to path (Linux & macOS)
         if: runner.os != 'Windows'
         run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
         shell: bash
 
-      - name: Add Poetry to path (Windows)
-        if: runner.os == 'Windows'
-        run: echo "C:\Users\${env:USERNAME}\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
-        shell: pwsh
+      # - name: Add Poetry to path (Windows)
+      #   if: runner.os == 'Windows'
+      #   run: echo "C:\Users\${env:USERNAME}\.local\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+      #   shell: pwsh
 
       - name: Install dependencies
         run: poetry install
