@@ -151,7 +151,7 @@ def test_find_single_smiles(
     max_results = 10
     similarity = 0.9
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(
             200, search_response.model_dump(by_alias=True)
         ),
@@ -173,7 +173,7 @@ def test_find_single_smiles_response(
     max_results = 10
     similarity = 0.9
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(
             200, search_response.model_dump(by_alias=True)
         ),
@@ -231,7 +231,7 @@ def test_find_invalid_smiles(
     max_results = 1000
     similarity = 0.9
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(
             200, bad_smiles_response.model_dump(by_alias=True)
         ),
