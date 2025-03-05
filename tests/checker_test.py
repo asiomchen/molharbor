@@ -162,7 +162,7 @@ def test_find_single_smiles(
     )
 
     assert isinstance(result, list)
-    assert len(result) == 8
+    assert len(result) == 10
 
 
 def test_find_single_smiles_response(
@@ -263,7 +263,7 @@ def test_invalid_response(molport, monkeypatch: MonkeyPatch):
     def mock_response(*args, **kwargs):
         return {"error": "Invalid response"}
 
-    monkeypatch.setattr("httpx.Response.json", mock_response)
+    monkeypatch.setattr("requests.Response.json", mock_response)
     smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
     max_results = 1000
@@ -276,17 +276,20 @@ def test_invalid_response(molport, monkeypatch: MonkeyPatch):
 
 def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(400, {"error": "Invalid response"}),
     )
     smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(
-        smiles, search_type=search_type, max_results=max_results, similarity=similarity
-    )
-    assert result == []
+    with pytest.raises(ValueError):
+        molport.find(
+            smiles,
+            search_type=search_type,
+            max_results=max_results,
+            similarity=similarity,
+        )
 
 
 @pytest.mark.parametrize(
@@ -302,7 +305,7 @@ def test_get_suppliers_unsuccessful_response(
     molport: Molport, monkeypatch: MonkeyPatch, code, msg
 ):
     monkeypatch.setattr(
-        "httpx.Client.get",
+        "cloudscraper.CloudScraper.get",
         lambda *args, **kwargs: MockResponse(code, json_data={}, text=msg),
     )
     with pytest.raises(ValueError) as exc:
@@ -312,7 +315,7 @@ def test_get_suppliers_unsuccessful_response(
 
 def test_get_suppliers_bad_format(molport: Molport, monkeypatch: MonkeyPatch):
     monkeypatch.setattr(
-        "httpx.Client.get",
+        "cloudscraper.CloudScraper.get",
         lambda *args, **kwargs: MockResponse(
             200, json_data={"error": "Invalid response"}
         ),
@@ -325,7 +328,7 @@ def test_get_suppliers_raw_response(
     molport: Molport, supplier_response: ResponseSupplier, monkeypatch: MonkeyPatch
 ):
     monkeypatch.setattr(
-        "httpx.Client.get",
+        "cloudscraper.CloudScraper.get",
         lambda *args, **kwargs: MockResponse(
             200, json_data=supplier_response.model_dump(by_alias=True)
         ),

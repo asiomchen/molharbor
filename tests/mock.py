@@ -15,6 +15,10 @@ class MockResponse:
     def json(self) -> dict:
         return self.json_data
 
+    def raise_for_status(self):
+        if self.status_code != 200:
+            raise ValueError(f"Error code: {self.status_code}\n{self.text}")
+
 
 class MockResponseSupplier:
     """Mocking the ResponseSupplier object from molharbor.data module.
