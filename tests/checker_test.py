@@ -116,7 +116,18 @@ def test_invalid_username_password(username, password, monkeypatch: MonkeyPatch)
         "e7a0c856-145d-11ef-a3b0-00155d8905e7",
     ],
 )
-def test_invalid_api_key(api_key):
+def test_invalid_api_key(api_key, monkeypatch: MonkeyPatch):
+    def mock_response(*args, **kwargs):
+        data = {
+            "Result": {
+                "Status": 2,
+                "Message": "User is not recognized or allowed request count exceeded!",
+            },
+            "Data": {"Version": "v.3.0.2"},
+        }
+        return data
+
+    monkeypatch.setattr("requests.Response.json", mock_response)
     molport = Molport()
     molport.login(api_key=api_key)
     with pytest.raises(LoginError):
