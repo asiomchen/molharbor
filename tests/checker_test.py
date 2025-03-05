@@ -94,9 +94,9 @@ def test_invalid_username_password(username, password, monkeypatch: MonkeyPatch)
             },
             "Data": {"Version": "v.3.0.2"},
         }
-        return data
+        return MockResponse(200, data)
 
-    monkeypatch.setattr("requests.Response.json", mock_response)
+    monkeypatch.setattr("cloudscraper.CloudScraper.post", mock_response)
     molport = Molport()
     molport.login(username=username, password=password)
     with pytest.raises(LoginError):
@@ -125,9 +125,9 @@ def test_invalid_api_key(api_key, monkeypatch: MonkeyPatch):
             },
             "Data": {"Version": "v.3.0.2"},
         }
-        return data
+        return MockResponse(200, data)
 
-    monkeypatch.setattr("requests.Response.json", mock_response)
+    monkeypatch.setattr("cloudscraper.CloudScraper.post", mock_response)
     molport = Molport()
     molport.login(api_key=api_key)
     with pytest.raises(LoginError):
