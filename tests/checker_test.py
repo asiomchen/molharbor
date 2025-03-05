@@ -85,7 +85,18 @@ def test_password_setter(molport):
         (";lkjhgfdg", "tyguhiujokplp;"),
     ],
 )
-def test_invalid_username_password(username, password):
+def test_invalid_username_password(username, password, monkeypatch: MonkeyPatch):
+    def mock_response(*args, **kwargs):
+        data = {
+            "Result": {
+                "Status": 2,
+                "Message": "User is not recognized or allowed request count exceeded!",
+            },
+            "Data": {"Version": "v.3.0.2"},
+        }
+        return data
+
+    monkeypatch.setattr("requests.Response.json", mock_response)
     molport = Molport()
     molport.login(username=username, password=password)
     with pytest.raises(LoginError):

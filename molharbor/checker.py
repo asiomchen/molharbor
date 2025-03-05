@@ -131,10 +131,17 @@ class Molport:
             similarity_request.raise_for_status()
         try:
             response = Response(**similarity_request.json())
+            print(response)
             if response.result.status != ResultStatus.SUCCESS.value:
                 msg = response.result.message
-                if "Username or password is incorrect!" in msg:
-                    raise LoginError("Credentials are incorrect, please login again")
+                if (
+                    "Username or password is incorrect!" in msg
+                    or "User is not recognized or allowed request count exceeded!"
+                    in msg
+                ):
+                    raise LoginError(
+                        "User is not recognized or allowed request count exceeded!"
+                    )
                 logging.error(msg)
                 return []
         except ValidationError as e:
