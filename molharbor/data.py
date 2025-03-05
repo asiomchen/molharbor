@@ -16,7 +16,7 @@ class Molecule(BaseModel):
 
 
 class Data(BaseModel):
-    molecules: Optional[List[Molecule]] = Field(alias="Molecules")
+    molecules: Optional[List[Molecule]] = Field(alias="Molecules", default=None)
     version: str = Field(alias="Version")
 
 

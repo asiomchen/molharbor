@@ -24,18 +24,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install poetry
-        run: curl -sSL https://install.python-poetry.org | python3 -
-
-      - name: Add Poetry to path
-        run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
-        shell: bash
-
-      - name: Install dependencies
-        run: poetry install
+      - name: Install UV
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.6.4"
+          python-version: ${{ matrix.python-version }}
 
       - name: Run tests and collect coverage
-        run: poetry run pytest --color=yes --disable-pytest-warnings --cov=molharbor --cov-report=xml tests/
+        run: uv run pytest --color=yes --disable-pytest-warnings --cov=molharbor --cov-report=xml tests/
 
       - name: Upload coverage to Codecov
         if: ${{ matrix.os == 'ubuntu-latest' }} && ${{ matrix.python-version == '3.9' }}
@@ -48,5 +44,3 @@ jobs:
 
     env:
       PYTHONIOENCODING: utf-8
-      POETRY_VIRTUALENVS_CREATE: true
-      POETRY_VIRTUALENVS_IN_PROJECT: true

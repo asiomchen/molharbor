@@ -258,10 +258,10 @@ ResponseSupplier(result=Result(status=1, message='Molecule found!'), data=DataSu
 
 Contributions are welcome!
 
-We use poetry for dependency management. To install the dependencies for development, run:
+We use uv for dependency management. To install the dependencies for development, run:
 
 ```bash
-poetry install --with dev
+uv sync
 ```
 
 

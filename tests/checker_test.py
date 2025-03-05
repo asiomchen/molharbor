@@ -85,7 +85,18 @@ def test_password_setter(molport):
         (";lkjhgfdg", "tyguhiujokplp;"),
     ],
 )
-def test_invalid_username_password(username, password):
+def test_invalid_username_password(username, password, monkeypatch: MonkeyPatch):
+    def mock_response(*args, **kwargs):
+        data = {
+            "Result": {
+                "Status": 2,
+                "Message": "User is not recognized or allowed request count exceeded!",
+            },
+            "Data": {"Version": "v.3.0.2"},
+        }
+        return MockResponse(200, data)
+
+    monkeypatch.setattr("cloudscraper.CloudScraper.post", mock_response)
     molport = Molport()
     molport.login(username=username, password=password)
     with pytest.raises(LoginError):
@@ -105,7 +116,18 @@ def test_invalid_username_password(username, password):
         "e7a0c856-145d-11ef-a3b0-00155d8905e7",
     ],
 )
-def test_invalid_api_key(api_key):
+def test_invalid_api_key(api_key, monkeypatch: MonkeyPatch):
+    def mock_response(*args, **kwargs):
+        data = {
+            "Result": {
+                "Status": 2,
+                "Message": "User is not recognized or allowed request count exceeded!",
+            },
+            "Data": {"Version": "v.3.0.2"},
+        }
+        return MockResponse(200, data)
+
+    monkeypatch.setattr("cloudscraper.CloudScraper.post", mock_response)
     molport = Molport()
     molport.login(api_key=api_key)
     with pytest.raises(LoginError):
@@ -151,7 +173,7 @@ def test_find_single_smiles(
     max_results = 10
     similarity = 0.9
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(
             200, search_response.model_dump(by_alias=True)
         ),
@@ -173,7 +195,7 @@ def test_find_single_smiles_response(
     max_results = 10
     similarity = 0.9
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(
             200, search_response.model_dump(by_alias=True)
         ),
@@ -231,7 +253,7 @@ def test_find_invalid_smiles(
     max_results = 1000
     similarity = 0.9
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(
             200, bad_smiles_response.model_dump(by_alias=True)
         ),
@@ -261,32 +283,39 @@ def test_find_smiles_not_string(molport, smiles):
 
 def test_invalid_response(molport, monkeypatch: MonkeyPatch):
     def mock_response(*args, **kwargs):
-        return {"error": "Invalid response"}
+        data = {"error": "Invalid response"}
+        return MockResponse(400, data)
 
-    monkeypatch.setattr("httpx.Response.json", mock_response)
+    monkeypatch.setattr("cloudscraper.CloudScraper.post", mock_response)
     smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(
-        smiles, search_type=search_type, max_results=max_results, similarity=similarity
-    )
-    assert result == []
+    with pytest.raises(ValueError):
+        molport.find(
+            smiles,
+            search_type=search_type,
+            max_results=max_results,
+            similarity=similarity,
+        )
 
 
 def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
     monkeypatch.setattr(
-        "httpx.Client.post",
+        "cloudscraper.CloudScraper.post",
         lambda *args, **kwargs: MockResponse(400, {"error": "Invalid response"}),
     )
     smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(
-        smiles, search_type=search_type, max_results=max_results, similarity=similarity
-    )
-    assert result == []
+    with pytest.raises(ValueError):
+        molport.find(
+            smiles,
+            search_type=search_type,
+            max_results=max_results,
+            similarity=similarity,
+        )
 
 
 @pytest.mark.parametrize(
@@ -302,7 +331,7 @@ def test_get_suppliers_unsuccessful_response(
     molport: Molport, monkeypatch: MonkeyPatch, code, msg
 ):
     monkeypatch.setattr(
-        "httpx.Client.get",
+        "cloudscraper.CloudScraper.get",
         lambda *args, **kwargs: MockResponse(code, json_data={}, text=msg),
     )
     with pytest.raises(ValueError) as exc:
@@ -312,7 +341,7 @@ def test_get_suppliers_unsuccessful_response(
 
 def test_get_suppliers_bad_format(molport: Molport, monkeypatch: MonkeyPatch):
     monkeypatch.setattr(
-        "httpx.Client.get",
+        "cloudscraper.CloudScraper.get",
         lambda *args, **kwargs: MockResponse(
             200, json_data={"error": "Invalid response"}
         ),
@@ -325,7 +354,7 @@ def test_get_suppliers_raw_response(
     molport: Molport, supplier_response: ResponseSupplier, monkeypatch: MonkeyPatch
 ):
     monkeypatch.setattr(
-        "httpx.Client.get",
+        "cloudscraper.CloudScraper.get",
         lambda *args, **kwargs: MockResponse(
             200, json_data=supplier_response.model_dump(by_alias=True)
         ),
