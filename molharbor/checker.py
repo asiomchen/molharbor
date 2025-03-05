@@ -131,7 +131,6 @@ class Molport:
             similarity_request.raise_for_status()
         try:
             response = Response(**similarity_request.json())
-            print(response)
             if response.result.status != ResultStatus.SUCCESS.value:
                 msg = response.result.message
                 if (
