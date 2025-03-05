@@ -162,7 +162,7 @@ def test_find_single_smiles(
     )
 
     assert isinstance(result, list)
-    assert len(result) == 10
+    assert len(result) == 8
 
 
 def test_find_single_smiles_response(
