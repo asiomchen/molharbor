@@ -1,6 +1,5 @@
 from __future__ import annotations
 import pandas as pd
-import httpx
 from dataclasses import dataclass, field
 import logging
 from typing import List, Optional, Union
@@ -9,13 +8,14 @@ from molharbor.exceptions import LoginError
 from molharbor.enums import SearchType, ResultStatus
 from molharbor.utils import compound_search_payload
 from pydantic import ValidationError
+import cloudscraper
 
 
 class Molport:
     __slots__ = ["client", "_api_key", "_username", "_password"]
 
     def __init__(self):
-        self.client = httpx.Client()
+        self.client = cloudscraper.create_scraper()
         self._api_key = None
         self._username = None
         self._password = None
@@ -128,8 +128,7 @@ class Molport:
             "https://api.molport.com/api/chemical-search/search", json=payload
         )
         if similarity_request.status_code != 200:
-            logging.error(f"Error code: {similarity_request.status_code}")
-            return []
+            similarity_request.raise_for_status()
         try:
             response = Response(**similarity_request.json())
             if response.result.status != ResultStatus.SUCCESS.value:
