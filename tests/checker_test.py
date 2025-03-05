@@ -283,17 +283,21 @@ def test_find_smiles_not_string(molport, smiles):
 
 def test_invalid_response(molport, monkeypatch: MonkeyPatch):
     def mock_response(*args, **kwargs):
-        return {"error": "Invalid response"}
+        data = {"error": "Invalid response"}
+        return MockResponse(400, data)
 
-    monkeypatch.setattr("requests.Response.json", mock_response)
+    monkeypatch.setattr("cloudscraper.CloudScraper.post", mock_response)
     smiles = "C1=CC=CC=C1"
     search_type = SearchType.EXACT
     max_results = 1000
     similarity = 0.9
-    result = molport.find(
-        smiles, search_type=search_type, max_results=max_results, similarity=similarity
-    )
-    assert result == []
+    with pytest.raises(ValueError):
+        molport.find(
+            smiles,
+            search_type=search_type,
+            max_results=max_results,
+            similarity=similarity,
+        )
 
 
 def test_unsuccessful_response(molport: Molport, monkeypatch: MonkeyPatch):
