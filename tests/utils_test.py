@@ -75,12 +75,12 @@ def test_api_key_is_default():
         credentials=credentials,
     )
     assert "API Key" in result, "Key API Key not found in result"
-    assert (
-        result.get("API Key") == "key"
-    ), f"API Key is not equal to key, {result.get('API Key')}"
-    assert not result.get(
-        "User Name", False
-    ), f"User Name is not empty, {result.get('User Name')}"
-    assert not result.get(
-        "Authentication Code", False
-    ), f"Authentication Code is not empty, {result}"
+    assert result.get("API Key") == "key", (
+        f"API Key is not equal to key, {result.get('API Key')}"
+    )
+    assert not result.get("User Name", False), (
+        f"User Name is not empty, {result.get('User Name')}"
+    )
+    assert not result.get("Authentication Code", False), (
+        f"Authentication Code is not empty, {result}"
+    )
