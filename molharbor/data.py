@@ -56,6 +56,15 @@ class Supplier(BaseModel):
     supplier_name: str = Field(alias="Supplier Name")
     supplier_id: int = Field(alias="Supplier Id")
     minimum_order: int = Field(alias="Minimum Order")
+    country_name: str = Field(alias="Country Name")
+    country_iso_code: str = Field(alias="Country ISO Code")
+    shipping_country_name: Optional[str] = Field(
+        alias="Shipping Country Name", default=None
+    )
+    shipping_country_iso_code: Optional[str] = Field(
+        alias="Shipping Country ISO Code", default=None
+    )
+    shipment_costs: List["ShipmentCost"] = Field(alias="Shipment Costs")
     currency: str = Field(alias="Currency")
     currency_id: int = Field(alias="Currency Id")
     catalogues: List[Catalog] = Field(alias="Catalogues")
@@ -74,8 +83,8 @@ class BagOfSuppliers(BaseModel):
 class ShipmentCost(BaseModel):
     price: float = Field(alias="Price")
     currency: str = Field(alias="Currency")
-    currency_Id: int = Field(alias="Currency Id")
-    location_Type: str = Field(alias="Location Type")
+    currency_id: int = Field(alias="Currency Id")
+    location_type: str = Field(alias="Location Type")
     location: str = Field(alias="Location")
     location_id: int = Field(alias="Location Id")
     shipment_type: str = Field(alias="Shipment Type")
