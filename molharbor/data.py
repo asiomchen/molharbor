@@ -83,8 +83,8 @@ class BagOfSuppliers(BaseModel):
 class ShipmentCost(BaseModel):
     price: float = Field(alias="Price")
     currency: str = Field(alias="Currency")
-    currency_Id: int = Field(alias="Currency Id")
-    location_Type: str = Field(alias="Location Type")
+    currency_id: int = Field(alias="Currency Id")
+    location_type: str = Field(alias="Location Type")
     location: str = Field(alias="Location")
     location_id: int = Field(alias="Location Id")
     shipment_type: str = Field(alias="Shipment Type")
