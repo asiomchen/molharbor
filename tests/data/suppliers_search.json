@@ -5,2214 +5,228 @@
   },
   "Data": {
     "Molecule": {
-      "Id": 871563,
-      "Molport Id": "Molport-000-871-563",
-      "SMILES": "OC(\u003dO)c1ccccc1",
-      "Canonical SMILES": "OC(\u003dO)c1ccccc1",
-      "IUPAC": "benzoic acid",
-      "Formula": "C7H6O2",
-      "Molecular Weight": 122.123,
+      "Id": 2325020,
+      "Molport Id": "Molport-002-325-020",
+      "SMILES": "CCOC(\u003dO)c1[nH]c2ccc(C)cc2c1NC(\u003dO)CC",
+      "Canonical SMILES": "CCOC(\u003dO)c1[nH]c2ccc(C)cc2c1NC(\u003dO)CC",
+      "IUPAC": "ethyl 5-methyl-3-propanamido-1H-indole-2-carboxylate",
+      "Formula": "C15H18N2O3",
+      "Molecular Weight": 274.32,
       "Status": "shop",
       "Type": "stock",
-      "Largest Stock": "40500000",
+      "Largest Stock": "124",
       "Largest Stock Measure": "mg",
       "Largest Stock Measure Id": 234,
       "Catalogues": {
         "Screening Block Suppliers": [
           {
-            "Supplier Name": "AnalytiCon Discovery - a Division of BRAIN Biotech AG",
-            "Supplier Id": 2012,
+            "Supplier Name": "Vitas M Chemical Limited",
+            "Supplier Id": 2077,
             "Minimum Order": 0,
             "Currency": "USD",
             "Currency Id": 2,
             "Catalogues": [
               {
-                "Catalog Id": 1121458665,
-                "Catalog Number": "NP-017287",
-                "Stock": 100,
+                "Catalog Id": 1133569666,
+                "Catalog Number": "STK374222",
+                "Stock": 124,
                 "Stock Measure": "mg",
                 "Stock Measure Id": 234,
-                "Purity": "\u003e85",
-                "Last Update Date": "yesterday",
-                "Last Update Date Exact": "Mar 4, 2025",
+                "Purity": "\u003e90%",
+                "Last Update Date": "this week",
+                "Last Update Date Exact": "Jul 8, 2025",
                 "Available Packings": [
                   {
                     "Amount": 1,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 321.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 42.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 2,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 403.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 42.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 3,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 484.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 42.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 4,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 564.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 44.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 5,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 645.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 44.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 6,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 726.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 46.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 7,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 806.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 46.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 8,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 889.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 47.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 9,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 968.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 47.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 13
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 10,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1050.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 11,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1113.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 12,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1176.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 13,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1241.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 14,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1305.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 15,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1367.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 16,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1431.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 17,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1495.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 18,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1559.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 19,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1621.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 20,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1686.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 21,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1746.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 22,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1803.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 23,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1861.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 24,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1920.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 1979.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 26,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 2037.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 27,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 2096.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 28,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 2144.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 29,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 2212.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 30,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 2272.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 50,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 3350.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 6696.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 145,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 145,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 175,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Germany",
-            "Country ISO Code": "DE"
-          },
-          {
-            "Supplier Name": "TargetMol Chemicals",
-            "Supplier Id": 6883,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1145761728,
-                "Catalog Number": "T0833",
-                "Stock": 17892.6,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "99.41%",
-                "Last Update Date": "this week",
-                "Last Update Date Exact": "Feb 27, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 29.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US",
-            "Shipping Country Name": "China",
-            "Shipping Country ISO Code": "CN"
-          },
-          {
-            "Supplier Name": "TargetMol Chemicals US",
-            "Supplier Id": 7027,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1145779173,
-                "Catalog Number": "T0833",
-                "Stock": 1179.9,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "99.41%",
-                "Last Update Date": "this week",
-                "Last Update Date Exact": "Feb 27, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 29.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US",
-            "Shipping Country Name": "China",
-            "Shipping Country ISO Code": "CN"
-          },
-          {
-            "Supplier Name": "MedChemExpress Europe",
-            "Supplier Id": 6934,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1143973461,
-                "Catalog Number": "HY-N0216",
-                "Stock Measure Id": 0,
-                "Purity": "99.95%",
-                "Last Update Date": "this month",
-                "Last Update Date Exact": "Feb 10, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 25.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 50,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 40.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1143966921,
-                "Catalog Number": "HY-N0216R",
-                "Stock Measure Id": 0,
-                "Purity": "99.73%",
-                "Last Update Date": "this month",
-                "Last Update Date Exact": "Feb 10, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 30.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 250,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 60.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 90.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 37,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 50,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 50,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 85,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Sweden",
-            "Country ISO Code": "SE"
-          },
-          {
-            "Supplier Name": "ChemFaces",
-            "Supplier Id": 6812,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1140947579,
-                "Catalog Number": "CFN97121",
-                "Stock Measure Id": 0,
-                "Purity": "\u003e\u003d98%",
-                "Last Update Date": "last month",
-                "Last Update Date Exact": "Jan 9, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 20,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 25.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 50,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 50,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 50,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "China",
-            "Country ISO Code": "CN"
-          },
-          {
-            "Supplier Name": "Otava, Ltd. (2 weeks)",
-            "Supplier Id": 6894,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1139559491,
-                "Catalog Number": "1778690",
-                "Stock": 1000,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "95.00",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Jan 2, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 3,
-                    "Measure": "micromol",
+                    "Measure": "μmol",
                     "Measure Id": 241,
-                    "Price": 38.40,
+                    "Price": 49.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 5,
-                    "Measure": "micromol",
-                    "Measure Id": 241,
-                    "Price": 42.70,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 10,
-                    "Measure": "micromol",
-                    "Measure Id": 241,
-                    "Price": 54.90,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 20,
-                    "Measure": "micromol",
-                    "Measure Id": 241,
-                    "Price": 65.90,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 1,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 34.00,
+                    "Price": 41.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 2,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 38.40,
+                    "Price": 46.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 3,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 42.70,
+                    "Price": 52.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 4,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 45.40,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 5,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 54.90,
+                    "Price": 63.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 10,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 65.90,
+                    "Price": 81.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 15,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 78.40,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 20,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 90.80,
+                    "Price": 113.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 100.40,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 30,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 109.90,
+                    "Price": 139.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 40,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 129.30,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 50,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 136.20,
+                    "Price": 181.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 11
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 105,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 105,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 105,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Ukraine",
-            "Country ISO Code": "UA"
-          },
-          {
-            "Supplier Name": "Apexbio Technology LLC",
-            "Supplier Id": 6992,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1138799989,
-                "Catalog Number": "B1676",
-                "Stock Measure Id": 0,
-                "Purity": "1.00",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 19, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 50,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 50.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 3
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 25,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 25,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 25,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "Molnova",
-            "Supplier Id": 7008,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1132865677,
-                "Catalog Number": "M15503",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Nov 27, 2024",
-                "Available Packings": [
+                    "Delivery Days": 14,
+                    "Ship By Air": true
+                  },
                   {
                     "Amount": 100,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 38.00,
+                    "Price": 286.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 7
+                    "Delivery Days": 14,
+                    "Ship By Air": true
                   }
                 ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "China",
-            "Country ISO Code": "CN"
-          },
-          {
-            "Supplier Name": "ChemNorm",
-            "Supplier Id": 6919,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1061028893,
-                "Catalog Number": "TB00049",
-                "Stock Measure Id": 0,
-                "Purity": "\u003e\u003d98%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Mar 27, 2023",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 15.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "China",
-            "Country ISO Code": "CN"
-          },
-          {
-            "Supplier Name": "TimTec, LLC (back-ordered)",
-            "Supplier Id": 7012,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1130478943,
-                "Catalog Number": "ST50213864",
-                "Stock": 20,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "94%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Nov 7, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 290.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 22
-                  },
-                  {
-                    "Amount": 10,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 390.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 22
-                  },
-                  {
-                    "Amount": 15,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 490.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 22
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 125,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 50,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 90,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 175,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          }
-        ],
-        "Building Block Suppliers": [
-          {
-            "Supplier Name": "AstaTech, Inc",
-            "Supplier Id": 2286,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1145536947,
-                "Catalog Number": "D85168",
-                "Stock Measure Id": 0,
-                "Purity": "95%",
-                "Last Update Date": "this week",
-                "Last Update Date Exact": "Feb 26, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 19.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 5
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 49.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 5
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 147.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 5
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 168,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 67,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 103,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "AK Scientific, Inc.",
-            "Supplier Id": 5029,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1142670529,
-                "Catalog Number": "K073",
-                "Stock": 4214000,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "\u003e99.5% (HPLC)",
-                "Last Update Date": "this month",
-                "Last Update Date Exact": "Feb 4, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 16.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 3
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 26.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 3
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 34.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 3
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 67.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 3
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 70,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 30,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "Apollo Scientific UK (3 weeks)",
-            "Supplier Id": 7040,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1141020839,
-                "Catalog Number": "BIA141014",
-                "Stock Measure Id": 0,
-                "Last Update Date": "last month",
-                "Last Update Date Exact": "Jan 9, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 169.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 16
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1141049110,
-                "Catalog Number": "OR9594",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "last month",
-                "Last Update Date Exact": "Jan 9, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 27.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 16
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 34.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 16
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 41.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 16
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 56,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 45,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 55,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United Kingdom",
-            "Country ISO Code": "GB"
-          },
-          {
-            "Supplier Name": "Apollo Scientific US (3 weeks)",
-            "Supplier Id": 7042,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1141101394,
-                "Catalog Number": "BIA141014",
-                "Stock Measure Id": 0,
-                "Last Update Date": "last month",
-                "Last Update Date Exact": "Jan 9, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 169.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1141132768,
-                "Catalog Number": "OR9594",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "last month",
-                "Last Update Date Exact": "Jan 9, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 27.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 34.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 41.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 56,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 45,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 55,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United Kingdom",
-            "Country ISO Code": "GB"
-          },
-          {
-            "Supplier Name": "Otava, Ltd.",
-            "Supplier Id": 2056,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1139509266,
-                "Catalog Number": "1778690",
-                "Stock": 1000,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "95.00",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Jan 2, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 50,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 114.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 9
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 105,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 105,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 105,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Ukraine",
-            "Country ISO Code": "UA"
-          },
-          {
-            "Supplier Name": "Sigma-Aldrich (Rush Stock)",
-            "Supplier Id": 7044,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1138566373,
-                "Catalog Number": "06185",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 208.05,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138570316,
-                "Catalog Number": "1055002",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 300,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 522.08,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138569017,
-                "Catalog Number": "109479",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 37.99,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 45.53,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 3,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 131.89,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138543273,
-                "Catalog Number": "12353",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 435.72,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138566213,
-                "Catalog Number": "18102",
-                "Stock Measure Id": 0,
-                "Purity": "100.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 51.60,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 55.07,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 2.5,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 105.72,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 511.86,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138570074,
-                "Catalog Number": "242381",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 21.35,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 29.21,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 85.58,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 3,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 334.44,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138563481,
-                "Catalog Number": "33047",
-                "Stock Measure Id": 0,
-                "Purity": "99.9%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 48.05,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 250,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 69.83,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 177.95,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138549956,
-                "Catalog Number": "427608",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 10,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 181.09,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138547029,
-                "Catalog Number": "73983",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 62.28,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138554487,
-                "Catalog Number": "76170",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 46.59,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138575996,
-                "Catalog Number": "PHR1050",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 113.71,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138561937,
-                "Catalog Number": "W213101",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 82.43,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 10,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 188.07,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 377.36,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1138561895,
-                "Catalog Number": "W213128",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 18, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 140.44,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 668.01,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 5,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 2723.33,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Germany",
-            "Country ISO Code": "DE"
-          },
-          {
-            "Supplier Name": "Aaron Chemicals LLC",
-            "Supplier Id": 7004,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1137576338,
-                "Catalog Number": "AR00356Z",
-                "Stock": 40500000,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "99%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 12, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 5.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 8
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 5.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 8
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 110,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 45,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 65,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 110,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
               }
             ],
             "Country Name": "Hong Kong",
@@ -2221,1271 +235,147 @@
             "Shipping Country ISO Code": "HK"
           },
           {
-            "Supplier Name": "Sigma-Aldrich",
-            "Supplier Id": 2063,
+            "Supplier Name": "Princeton BioMolecular Research (SC)",
+            "Supplier Id": 2112,
             "Minimum Order": 0,
             "Currency": "USD",
             "Currency Id": 2,
             "Catalogues": [
               {
-                "Catalog Id": 1137360853,
-                "Catalog Number": "06185",
+                "Catalog Id": 1158261497,
+                "Catalog Number": "OSSL_129598",
                 "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 208.05,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137364796,
-                "Catalog Number": "1055002",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 300,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 522.08,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137363497,
-                "Catalog Number": "109479",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 37.99,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 45.53,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 3,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 131.89,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137337753,
-                "Catalog Number": "12353",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 435.72,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137360693,
-                "Catalog Number": "18102",
-                "Stock Measure Id": 0,
-                "Purity": "100.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 51.60,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 55.07,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 2.5,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 105.72,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 511.86,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137364554,
-                "Catalog Number": "242381",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 21.35,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 29.21,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 85.58,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 3,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 334.44,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137357961,
-                "Catalog Number": "33047",
-                "Stock Measure Id": 0,
-                "Purity": "99.9%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 48.05,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 250,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 69.83,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 177.95,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137344436,
-                "Catalog Number": "427608",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 10,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 181.09,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137341509,
-                "Catalog Number": "73983",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 62.28,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137348967,
-                "Catalog Number": "76170",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 46.59,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137370476,
-                "Catalog Number": "PHR1050",
-                "Stock Measure Id": 0,
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 113.71,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137356417,
-                "Catalog Number": "W213101",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 82.43,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 10,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 188.07,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 377.36,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1137356375,
-                "Catalog Number": "W213128",
-                "Stock Measure Id": 0,
-                "Purity": "99.5%",
-                "Last Update Date": "3 months ago",
-                "Last Update Date Exact": "Dec 11, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 140.44,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 668.01,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 5,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 2723.33,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Germany",
-            "Country ISO Code": "DE"
-          },
-          {
-            "Supplier Name": "Fluorochem EU",
-            "Supplier Id": 7022,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1127601879,
-                "Catalog Number": "F237766",
-                "Stock Measure Id": 0,
-                "Purity": "99.0%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Oct 31, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 24.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 30.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 27.60,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 11
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 40,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Germany",
-            "Country ISO Code": "DE"
-          },
-          {
-            "Supplier Name": "A2B Chem LLC",
-            "Supplier Id": 6956,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1100822785,
-                "Catalog Number": "AB45599",
-                "Stock Measure Id": 0,
-                "Purity": "99.0%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "May 10, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 18.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 35.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 110,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 180,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "HTS Biochemie Innovationen",
-            "Supplier Id": 6731,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1143338849,
-                "Catalog Number": "HTS006415",
-                "Stock": 16150,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "95.00",
-                "Last Update Date": "this month",
-                "Last Update Date Exact": "Feb 6, 2025",
+                "Purity": "\u003e90%",
+                "Last Update Date": "last month",
+                "Last Update Date Exact": "May 15, 2025",
                 "Available Packings": [
                   {
                     "Amount": 1,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 39.00,
+                    "Price": 85.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
+                  },
+                  {
+                    "Amount": 2,
+                    "Measure": "mg",
+                    "Measure Id": 234,
+                    "Price": 85.00,
+                    "Currency": "USD",
+                    "Currency Id": 2,
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 5,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 59.00,
+                    "Price": 90.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 10,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 69.00,
+                    "Price": 105.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
+                  },
+                  {
+                    "Amount": 15,
+                    "Measure": "mg",
+                    "Measure Id": 234,
+                    "Price": 120.00,
+                    "Currency": "USD",
+                    "Currency Id": 2,
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 20,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 89.00,
+                    "Price": 130.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
+                  },
+                  {
+                    "Amount": 30,
+                    "Measure": "mg",
+                    "Measure Id": 234,
+                    "Price": 150.00,
+                    "Currency": "USD",
+                    "Currency Id": 2,
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 50,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 129.00,
+                    "Price": 210.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 100,
                     "Measure": "mg",
                     "Measure Id": 234,
-                    "Price": 179.00,
+                    "Price": 270.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
-                    "Amount": 500,
-                    "Measure": "mg",
-                    "Measure Id": 234,
-                    "Price": 280.00,
+                    "Amount": 3,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 85.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 400.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   },
                   {
                     "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 850.00,
+                    "Measure": "μmol",
+                    "Measure Id": 241,
+                    "Price": 90.00,
                     "Currency": "USD",
                     "Currency Id": 2,
-                    "Delivery Days": 2
-                  },
-                  {
-                    "Amount": 10,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 1200.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 2
+                    "Delivery Days": 16,
+                    "Ship By Air": true
                   }
                 ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 55,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 80,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 65,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Germany",
-            "Country ISO Code": "DE"
-          },
-          {
-            "Supplier Name": "AK Scientific Specialized",
-            "Supplier Id": 7037,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1142621606,
-                "Catalog Number": "J93357",
-                "Stock": 4214000,
-                "Stock Measure": "mg",
-                "Stock Measure Id": 234,
-                "Purity": "98%",
-                "Last Update Date": "this month",
-                "Last Update Date Exact": "Feb 4, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 12.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 17.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 21.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 36.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 70,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 30,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 120,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
               }
             ],
             "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "Combi-Blocks, Inc.",
-            "Supplier Id": 2033,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1140696872,
-                "Catalog Number": "QE-7417",
-                "Stock Measure Id": 0,
-                "Purity": "98%",
-                "Last Update Date": "last month",
-                "Last Update Date Exact": "Jan 8, 2025",
-                "Available Packings": [
-                  {
-                    "Amount": 5,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 10.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 20.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 50.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 150.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 250.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 6
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 190,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 22,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 60,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 190,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "AA BLOCKS",
-            "Supplier Id": 6936,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1131793179,
-                "Catalog Number": "AA0034F7",
-                "Stock Measure Id": 0,
-                "Purity": "\u003e99.0%(GC)",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Nov 14, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 13.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 5
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 25.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 5
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 125,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 35,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 125,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 145,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United States",
-            "Country ISO Code": "US"
-          },
-          {
-            "Supplier Name": "Fluorochem UK",
-            "Supplier Id": 2037,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1109004004,
-                "Catalog Number": "F237766",
-                "Stock Measure Id": 0,
-                "Purity": "99.0%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Jul 1, 2024",
-                "Available Packings": [
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 24.70,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 27.30,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 37.70,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 4
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 40,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 95,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "United Kingdom",
-            "Country ISO Code": "GB"
-          },
-          {
-            "Supplier Name": "ALFA AESAR",
-            "Supplier Id": 2128,
-            "Minimum Order": 0,
-            "Currency": "USD",
-            "Currency Id": 2,
-            "Catalogues": [
-              {
-                "Catalog Id": 1056778215,
-                "Catalog Number": "036230",
-                "Stock Measure Id": 0,
-                "Purity": "99.5% min",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Feb 8, 2023",
-                "Available Packings": [
-                  {
-                    "Amount": 25,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 29.88,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 100,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 63.84,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 500,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 126.00,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  }
-                ]
-              },
-              {
-                "Catalog Id": 1056783683,
-                "Catalog Number": "A14062",
-                "Stock Measure Id": 0,
-                "Purity": "99%",
-                "Last Update Date": "\u003e 3 months ago",
-                "Last Update Date Exact": "Feb 8, 2023",
-                "Available Packings": [
-                  {
-                    "Amount": 250,
-                    "Measure": "g",
-                    "Measure Id": 233,
-                    "Price": 27.84,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  },
-                  {
-                    "Amount": 1,
-                    "Measure": "kg",
-                    "Measure Id": 235,
-                    "Price": 49.20,
-                    "Currency": "USD",
-                    "Currency Id": 2,
-                    "Delivery Days": 13
-                  }
-                ]
-              }
-            ],
-            "Shipment Costs": [
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "EUROPE",
-                "Location Id": 1,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "USA",
-                "Location Id": 2,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "CANADA AND MEXICO",
-                "Location Id": 3,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              },
-              {
-                "Price": 100,
-                "Currency": "USD",
-                "Currency Id": 2,
-                "Location Type": "REGION",
-                "Location": "OTHER LOCATIONS",
-                "Location Id": 4,
-                "Shipment Type": "Direct Shipping",
-                "Shipment Type Id": 3
-              }
-            ],
-            "Country Name": "Germany",
-            "Country ISO Code": "DE"
+            "Country ISO Code": "US",
+            "Shipping Country Name": "United States",
+            "Shipping Country ISO Code": "US"
           }
         ],
+        "Building Block Suppliers": [],
         "Virtual Suppliers": []
       },
       "Synonyms": [
-        "0",
-        "Ammonium Benzoate",
-        "BENZOIC ACID",
-        "BENZOICACID",
-        "Benzene carboxylic acid",
-        "Benzenecarboxylic acid",
-        "Benzoesaeure",
-        "Benzoic acid, 99%",
-        "Benzoic acid, 99%, extra pure",
-        "Benzoic acid, 99.5%, for analysis",
-        "Benzoic acid, 99.6%, ACS reagent",
-        "Benzoic acid, ACS, 99.5% min",
-        "Benzoic acid, for analysis",
-        "Benzoic acid, reagent ACS",
-        "Carboxybenzene",
-        "benzoic acid\nbenzoic acid",
-        "MFCD00002398"
+        "5-Methyl-3-propionylamino-1H-indole-2-carboxylic acid ethyl ester",
+        "ethyl",
+        "ethyl 5-methyl-3-(propanoylamino)-1H-indole-2-carboxylate",
+        "MFCD00808915"
       ]
     },
     "Version": "v.3.0.2"
