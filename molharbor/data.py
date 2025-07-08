@@ -4,6 +4,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 import numpy as np
 from molharbor.enums import SearchType
 
+
 class BaseModel(BaseModel):
     """
     Base model for all Pydantic models in this module.
@@ -76,7 +77,9 @@ class Supplier(BaseModel):
     shipping_country_iso_code: Optional[str] = Field(
         alias="Shipping Country ISO Code", default=None
     )
-    shipment_costs: Optional[List["ShipmentCost"]] = Field(alias="Shipment Costs", default=None)
+    shipment_costs: Optional[List["ShipmentCost"]] = Field(
+        alias="Shipment Costs", default=None
+    )
     currency: str = Field(alias="Currency")
     currency_id: int = Field(alias="Currency Id")
     catalogues: List[Catalog] = Field(alias="Catalogues")
