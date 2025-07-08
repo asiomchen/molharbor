@@ -393,6 +393,8 @@ def test_extract_suppliers(supplier_response, molport_obj: Molport):
             "currency",
             "currency_id",
             "delivery_days",
+            "ship_by_air",
+            "salt_data",
             "catalog_id",
             "catalog_number",
             "stock",
