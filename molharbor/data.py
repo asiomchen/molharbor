@@ -1,11 +1,12 @@
 from typing import List, Optional
 from pydantic_core import PydanticCustomError
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel as PydanticBaseModel
+from pydantic import ConfigDict, Field, model_validator
 import numpy as np
 from molharbor.enums import SearchType
 
 
-class BaseModel(BaseModel):
+class BaseModel(PydanticBaseModel):
     """
     Base model for all Pydantic models in this module.
     It sets the default configuration for all models.
