@@ -4,6 +4,16 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 import numpy as np
 from molharbor.enums import SearchType
 
+class BaseModel(BaseModel):
+    """
+    Base model for all Pydantic models in this module.
+    It sets the default configuration for all models.
+    """
+
+    model_config = ConfigDict(
+        extra="forbid",  # Forbid extra fields
+    )
+
 
 class Molecule(BaseModel):
     id: int = Field(..., alias="Id")
@@ -32,12 +42,13 @@ class Response(BaseModel):
 
 class AvailablePacking(BaseModel):
     amount: float = Field(np.nan, alias="Amount")
-    measure: str = Field(alias="Measure")
+    measure: Optional[str] = Field(None, alias="Measure")
     measure_id: int = Field(alias="Measure Id")
-    price: float = Field(alias="Price")
-    currency: str = Field(alias="Currency")
+    price: Optional[float] = Field(None, alias="Price")
+    currency: Optional[str] = Field(None, alias="Currency")
     currency_id: int = Field(alias="Currency Id")
     delivery_days: int = Field(alias="Delivery Days")
+    ship_by_air: bool = Field(alias="Ship By Air")
 
 
 class Catalog(BaseModel):
@@ -48,7 +59,7 @@ class Catalog(BaseModel):
     stock_measure_id: Optional[int] = Field(None, alias="Stock Measure Id")
     purity: str = Field("unknown", alias="Purity")
     last_update_date: str = Field(alias="Last Update Date")
-    last_update_date_exact: str = Field(alias="Last Update Date Exact")
+    last_update_date_exact: Optional[str] = Field(None, alias="Last Update Date Exact")
     available_packings: List[AvailablePacking] = Field(alias="Available Packings")
 
 
@@ -64,7 +75,7 @@ class Supplier(BaseModel):
     shipping_country_iso_code: Optional[str] = Field(
         alias="Shipping Country ISO Code", default=None
     )
-    shipment_costs: List["ShipmentCost"] = Field(alias="Shipment Costs")
+    shipment_costs: Optional[List["ShipmentCost"]] = Field(alias="Shipment Costs", default=None)
     currency: str = Field(alias="Currency")
     currency_id: int = Field(alias="Currency Id")
     catalogues: List[Catalog] = Field(alias="Catalogues")
@@ -130,7 +141,7 @@ class SearchPayload(BaseModel):
     api_key: Optional[str] = Field(None, serialization_alias="API Key")
     username: Optional[str] = Field(None, serialization_alias="User Name")
     password: Optional[str] = Field(None, serialization_alias="Authentication Code")
-    model_config = ConfigDict(use_enum_values=True)
+    model_config = ConfigDict(use_enum_values=True, extra="allow")
 
     @model_validator(mode="before")
     def check_auth(cls, values: dict):
