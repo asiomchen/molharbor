@@ -44,7 +44,7 @@ repository = "https://github.com/asiomchen/molharbor"
 
 [dependency-groups]
 dev = [
-    "pytest<8",
+    "pytest<10",
     "pytest-cov>=5.0.0",
     "ruff>=0.4.4",
     "pre-commit>=3.7.1",
