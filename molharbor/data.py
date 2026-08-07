@@ -1,8 +1,8 @@
-from typing import List, Optional
-from pydantic_core import PydanticCustomError
+import math
+from typing import List, Literal, Optional
+
 from pydantic import BaseModel as PydanticBaseModel
 from pydantic import ConfigDict, Field, model_validator
-import numpy as np
 from molharbor.enums import SearchType
 
 
@@ -43,7 +43,7 @@ class Response(BaseModel):
 
 
 class AvailablePacking(BaseModel):
-    amount: float = Field(np.nan, alias="Amount")
+    amount: float = Field(math.nan, alias="Amount")
     measure: Optional[str] = Field(None, alias="Measure")
     measure_id: int = Field(alias="Measure Id")
     price: Optional[float] = Field(None, alias="Price")
@@ -64,6 +64,34 @@ class Catalog(BaseModel):
     last_update_date: str = Field(alias="Last Update Date")
     last_update_date_exact: Optional[str] = Field(None, alias="Last Update Date Exact")
     available_packings: List[AvailablePacking] = Field(alias="Available Packings")
+
+
+class SupplierOffer(BaseModel):
+    """A flattened supplier catalogue offer for one available packing."""
+
+    supplier_name: str
+    supplier_type: Literal[
+        "screening_block_suppliers",
+        "building_block_suppliers",
+        "virtual_suppliers",
+    ]
+    amount: float = math.nan
+    measure: Optional[str] = None
+    measure_id: int
+    price: Optional[float] = None
+    currency: Optional[str] = None
+    currency_id: int
+    delivery_days: int
+    ship_by_air: bool
+    catalog_id: int
+    catalog_number: str
+    stock: Optional[float] = None
+    stock_measure: Optional[str] = None
+    stock_measure_id: Optional[int] = None
+    purity: str = "unknown"
+    salt_data: Optional[str] = None
+    last_update_date: str
+    last_update_date_exact: Optional[str] = None
 
 
 class Supplier(BaseModel):
@@ -160,9 +188,9 @@ class SearchPayload(BaseModel):
             values.pop("password", None)
             return values
         elif not all((username, password)):
-            raise PydanticCustomError(
-                "Either username and password or api_key must be provided",
-                f"Wrong credintials combination: api_key={api_key}, username={username}, password={password}",
+            raise ValueError(
+                "Either username and password or api_key must be provided: "
+                f"api_key={api_key}, username={username}, password={password}"
             )
         values.pop("api_key", None)
         return values
