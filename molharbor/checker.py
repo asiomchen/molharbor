@@ -1,9 +1,8 @@
 from __future__ import annotations
-import pandas as pd
 from dataclasses import dataclass, field
 import logging
 from typing import List, Optional, Union
-from molharbor.data import Response, ResponseSupplier
+from molharbor.data import Response, ResponseSupplier, SupplierOffer
 from molharbor.exceptions import LoginError
 from molharbor.enums import SearchType, ResultStatus
 from molharbor.utils import compound_search_payload
@@ -100,7 +99,7 @@ class Molport:
 
         Args:
             smiles (str): SMILES string of the compound
-            search_type (Union[SearchType, int], optional): _description_. Defaults to SearchType.EXACT_FRAGMENT.
+            search_type (Union[SearchType, int], optional): Type of search to perform. Defaults to SearchType.EXACT_FRAGMENT.
             max_search_time (Optional[int], optional): time in miliseconds - maximum search time to be spent on chemical search
             max_results (int, optional): maximum result count which must be returned as result; currently maximum allowed value is 10000. Defaults to 10000.
             similarity (float, optional): if similarity search is made, it is possible to provide similarity index in range 0 - 1. Defaults to 0.9.
@@ -155,18 +154,18 @@ class Molport:
 
     def get_suppliers(
         self, molport_id: str, return_response: bool = False
-    ) -> Union[pd.DataFrame, ResponseSupplier]:
+    ) -> Union[List[SupplierOffer], ResponseSupplier]:
         """Get suppliers for a given Molport ID
 
         Args:
             molport_id (str): Molport ID of the compound
-            return_response (bool, optional): If True, returns the response object. Otherwise parses the response and returns a DataFrame. Defaults to False.
+            return_response (bool, optional): If True, returns the response object. Otherwise parses the response and returns supplier offers. Defaults to False.
 
         Raises:
             ValueError: If the response status is not 200
 
         Returns:
-            Union[pd.DataFrame, ResponseSupplier]: DataFrame with supplier information or Response object
+            Union[List[SupplierOffer], ResponseSupplier]: Supplier offers or response object
         """
         credentials = self.credentials
         url = "https://api.molport.com/api/molecule/load?molecule={}"
@@ -182,10 +181,9 @@ class Molport:
         data = ResponseSupplier(**response.json())
         if return_response:
             return data
-        else:
-            return self.extract_suppliers(data)
+        return self.extract_suppliers(data)
 
-    def extract_suppliers(self, response: ResponseSupplier) -> pd.DataFrame:
+    def extract_suppliers(self, response: ResponseSupplier) -> List[SupplierOffer]:
         """Extract suppliers from the response data
 
         Args:
@@ -195,31 +193,32 @@ class Molport:
             ValueError: If the response status is not SUCCESS
 
         Returns:
-            pd.DataFrame: DataFrame with supplier information
+            List[SupplierOffer]: One flattened offer per available packing
         """
         if response.result.status != ResultStatus.SUCCESS.value:
             raise ValueError(response.result.message)
-        types = [
+        supplier_types = [
             "screening_block_suppliers",
             "building_block_suppliers",
             "virtual_suppliers",
         ]
-        records = []
-        for supp_type in types:
-            if hasattr(response.data.molecule.catalogues, supp_type):
-                for supp in response.data.molecule.catalogues.screening_block_suppliers:
-                    for catalog in supp.catalogues:
-                        data = catalog.model_dump()
-                        packings = data.pop("available_packings")
-                        name = {
-                            "supplier_name": supp.supplier_name,
-                            "supplier_type": supp_type,
-                        }
-                        for packing in packings:
-                            record = {**name, **packing, **data}
-                            records.append(record)
-        df = pd.DataFrame(records)
-        return df
+        offers = []
+        catalogues = response.data.molecule.catalogues
+        for supplier_type in supplier_types:
+            suppliers = getattr(catalogues, supplier_type) or []
+            for supplier in suppliers:
+                for catalog in supplier.catalogues:
+                    catalog_data = catalog.model_dump(exclude={"available_packings"})
+                    for packing in catalog.available_packings:
+                        offers.append(
+                            SupplierOffer(
+                                supplier_name=supplier.supplier_name,
+                                supplier_type=supplier_type,
+                                **packing.model_dump(),
+                                **catalog_data,
+                            )
+                        )
+        return offers
 
 
 @dataclass

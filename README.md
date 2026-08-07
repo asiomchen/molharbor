@@ -1,6 +1,6 @@
 
 # MolHarbour
-[![image](https://shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](#)
+[![image](https://shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)](#)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![codecov](https://codecov.io/gh/asiomchen/molharbor/graph/badge.svg?token=BPMQ6F3IV9)](https://codecov.io/gh/asiomchen/molharbor)
 
@@ -137,10 +137,10 @@ molport.find("O=C(O)c1ccccc1",
 
 ### Suppliers search
 
-Having a Molport ID, you can search for suppliers using the `get_suppliers` method. Similar too `find()` method, you could either recieve a raw pydantic response with all the fields having the same name as in Molport API docs, only lowercase and the spaces are replaced with underscores( e.g. `Shipment Type` -> `shipment_type`) or processed dataframe with most important fields
+Having a Molport ID, you can search for suppliers using the `get_suppliers` method. Similar to the `find()` method, you can receive either a raw Pydantic response or a processed list of `SupplierOffer` models. Each offer represents one available packing from a supplier catalogue.
 
 ```python
-df = molport.get_suppliers("Molport-001-794-639")
+offers = molport.get_suppliers("Molport-001-794-639")
 ```
 
 Or you could use id values of `MolportCompound` objects returned by `find()` method
@@ -151,101 +151,26 @@ result
 
 MolportCompound(smiles='C[C@H](CS)C(=O)N1CCC[C@H]1C(O)=O', molport_id='Molport-001-794-639', link=...
 
-df = molport.get_suppliers(result.molport_id)
+offers = molport.get_suppliers(result.molport_id)
 ```
-#### Processed dataframe
+#### Processed supplier offers
 
-Returned dataframe contains all the fields from the Molport API response with type validation provided by Pydantic. The fields are renamed to be more human-readable and to be consistent with the Molport API docs. Below is an example of the most important fields.
+The returned models contain the supplier, catalogue, and packing fields from the MolPort response with Pydantic validation.
 
 ```python
-df[["supplier_name", "supplier_type", "amount", "measure", 
-"price", "currency", "delivery_days", 
-"stock", "stock_measure", "last_update_date_exact"]].head()
+first_offer = offers[0]
+first_offer.supplier_name
+first_offer.price
+first_offer.model_dump()
 ```
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>supplier_name</th>
-      <th>supplier_type</th>
-      <th>amount</th>
-      <th>measure</th>
-      <th>price</th>
-      <th>currency</th>
-      <th>delivery_days</th>
-      <th>stock</th>
-      <th>stock_measure</th>
-      <th>last_update_date_exact</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>BIONET - Key Organics Ltd.</td>
-      <td>screening_block_suppliers</td>
-      <td>1.0</td>
-      <td>mg</td>
-      <td>45.0</td>
-      <td>USD</td>
-      <td>4</td>
-      <td>1187.6</td>
-      <td>mg</td>
-      <td>May 17, 2024</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>BIONET - Key Organics Ltd.</td>
-      <td>screening_block_suppliers</td>
-      <td>5.0</td>
-      <td>mg</td>
-      <td>53.0</td>
-      <td>USD</td>
-      <td>4</td>
-      <td>1187.6</td>
-      <td>mg</td>
-      <td>May 17, 2024</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>BIONET - Key Organics Ltd.</td>
-      <td>screening_block_suppliers</td>
-      <td>10.0</td>
-      <td>mg</td>
-      <td>64.0</td>
-      <td>USD</td>
-      <td>4</td>
-      <td>1187.6</td>
-      <td>mg</td>
-      <td>May 17, 2024</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>BIONET - Key Organics Ltd.</td>
-      <td>screening_block_suppliers</td>
-      <td>1.0</td>
-      <td>mg</td>
-      <td>45.0</td>
-      <td>USD</td>
-      <td>4</td>
-      <td>1187.6</td>
-      <td>mg</td>
-      <td>May 17, 2024</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BIONET - Key Organics Ltd.</td>
-      <td>screening_block_suppliers</td>
-      <td>2.0</td>
-      <td>mg</td>
-      <td>47.0</td>
-      <td>USD</td>
-      <td>4</td>
-      <td>1187.6</td>
-      <td>mg</td>
-      <td>May 17, 2024</td>
-    </tr>
-  </tbody>
-</table>
+
+Applications that use pandas can construct a dataframe without making it a MolHarbor dependency:
+
+```python
+import pandas as pd
+
+df = pd.DataFrame(offer.model_dump() for offer in offers)
+```
 
 #### Raw response
 

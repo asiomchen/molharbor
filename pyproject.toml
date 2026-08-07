@@ -7,14 +7,10 @@ authors = [
     {name = "Anton Siomchen", email = "41703271+asiomchen@users.noreply.github.com"},
 ]
 license = {text = "Apache-2.0"}
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
-    "pandas>=2.2.2",
-    "pydantic>=2.7.1",
-    "requests>=2.31.0",
-    "numpy>=1.26.4",
-    "tqdm>=4.66.4",
-    "cloudscraper>=1.2.71",
+    "pydantic>=2.0",
+    "cloudscraper>=1.1.17",
 ]
 name = "molharbor"
 version = "0.1.5"
@@ -31,10 +27,10 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Topic :: Scientific/Engineering",
     "Topic :: Utilities",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3 :: Only",
 ]
 
@@ -88,8 +84,8 @@ exclude = [
 line-length = 88
 indent-width = 4
 
-# Assume Python 3.9
-target-version = "py39"
+# Assume Python 3.10
+target-version = "py310"
 
 [tool.ruff.lint]
 # Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.

@@ -1,9 +1,8 @@
-import pandas as pd
 from pydantic import ValidationError
 import pytest
 from pytest import MonkeyPatch
 from pytest_lazyfixture import lazy_fixture
-from molharbor import Molport
+from molharbor import Molport, SupplierOffer
 from molharbor.enums import SearchType, ResultStatus
 from molharbor.exceptions import UnknownSearchTypeException
 from molharbor.data import ResponseSupplier, Response
@@ -363,6 +362,22 @@ def test_get_suppliers_raw_response(
     assert isinstance(response, ResponseSupplier)
 
 
+def test_get_suppliers_returns_offers(
+    molport: Molport, supplier_response: ResponseSupplier, monkeypatch: MonkeyPatch
+):
+    monkeypatch.setattr(
+        "cloudscraper.CloudScraper.get",
+        lambda *args, **kwargs: MockResponse(
+            200, json_data=supplier_response.model_dump(by_alias=True)
+        ),
+    )
+
+    offers = molport.get_suppliers("Molport-000-871-563")
+
+    assert len(offers) == 30
+    assert all(isinstance(offer, SupplierOffer) for offer in offers)
+
+
 @pytest.mark.parametrize(
     "status",
     [0, 1, 2, 3, 4],
@@ -380,27 +395,42 @@ def test_bad_result_status(molport: Molport, status):
     [lazy_fixture("molport"), lazy_fixture("molport_api_key")],
 )
 def test_extract_suppliers(supplier_response, molport_obj: Molport):
-    suppliers = molport_obj.extract_suppliers(supplier_response)
-    assert isinstance(suppliers, pd.DataFrame)
-    for col in suppliers.columns:
-        assert col in [
-            "supplier_name",
-            "supplier_type",
-            "amount",
-            "measure",
-            "measure_id",
-            "price",
-            "currency",
-            "currency_id",
-            "delivery_days",
-            "ship_by_air",
-            "salt_data",
-            "catalog_id",
-            "catalog_number",
-            "stock",
-            "stock_measure",
-            "stock_measure_id",
-            "purity",
-            "last_update_date",
-            "last_update_date_exact",
-        ], f"Column {col} is not in the DataFrame"
+    offers = molport_obj.extract_suppliers(supplier_response)
+
+    assert len(offers) == 30
+    assert all(isinstance(offer, SupplierOffer) for offer in offers)
+    assert {offer.supplier_type for offer in offers} == {"screening_block_suppliers"}
+    assert offers[0].supplier_name == "Vitas M Chemical Limited"
+    assert offers[0].amount == 1.0
+    assert offers[0].measure == "μmol"
+    assert offers[0].price == 42.0
+    assert offers[0].currency == "USD"
+
+
+def test_extract_suppliers_uses_matching_supplier_group(
+    supplier_response, molport: Molport
+):
+    response = supplier_response.model_copy(deep=True)
+    catalogues = response.data.molecule.catalogues
+    supplier = catalogues.screening_block_suppliers[0]
+    expected_count = sum(
+        len(catalog.available_packings) for catalog in supplier.catalogues
+    )
+    catalogues.screening_block_suppliers = []
+    catalogues.building_block_suppliers = [supplier]
+    catalogues.virtual_suppliers = None
+
+    offers = molport.extract_suppliers(response)
+
+    assert len(offers) == expected_count
+    assert {offer.supplier_type for offer in offers} == {"building_block_suppliers"}
+
+
+def test_extract_suppliers_returns_empty_list(supplier_response, molport: Molport):
+    response = supplier_response.model_copy(deep=True)
+    catalogues = response.data.molecule.catalogues
+    catalogues.screening_block_suppliers = None
+    catalogues.building_block_suppliers = []
+    catalogues.virtual_suppliers = None
+
+    assert molport.extract_suppliers(response) == []
