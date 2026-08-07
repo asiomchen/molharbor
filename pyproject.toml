@@ -13,7 +13,7 @@ dependencies = [
     "cloudscraper>=1.1.17",
 ]
 name = "molharbor"
-version = "0.1.5"
+version = "0.1.6"
 description = " unofficial python wrapper for MolPort API"
 readme = "README.md"
 keywords = [
